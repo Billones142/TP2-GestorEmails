@@ -9,7 +9,7 @@ import email.ucp.classes.User;
 public class UserTest {
     @Test
     public void test(){
-        User usuario= new User("stefano");
+        User usuario= new User("stefano","stefanomerinoderui@gmail.com");
 
         assertNotEquals(null , usuario);
     }
