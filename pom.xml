@@ -4,11 +4,11 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>email.ucp.classes</groupId>
-	<artifactId>email</artifactId>
+	<artifactId>Email</artifactId>
 	<version>1.0-SNAPSHOT</version>
 	<packaging>jar</packaging>
 
-	<name>Emails</name>
+	<name>Email</name>
 	<url>http://maven.apache.org</url>
 
 	<properties>
