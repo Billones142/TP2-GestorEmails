@@ -44,4 +44,4 @@ jobs:
         git checkout -b generated-files
         git add target/my-reports/*
         git commit -m "Add generated files"
-        git push origin report
+        git push origin reports
