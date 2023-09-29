@@ -29,6 +29,9 @@ jobs:
         cache: maven
     - name: Build with Maven
       run: mvn clean test
+      env:
+        GH_TOKEN: ${{ secrets.GH_TOKEN }}
+
 
       # Capture the generated files as artifacts
     - name: Capture Test Generated Files
@@ -44,4 +47,7 @@ jobs:
         git checkout -b reports
         git add target/my-reports/*
         git commit -m "Add generated files"
+        
+        git config --global credential.helper store
+        git remote add origin https://$GH_TOKEN@github.com/yourusername/yourrepository.git
         git push origin reports
