@@ -39,4 +39,4 @@ jobs:
           git commit -m "Add generated files"
   
           git config --global credential.helper store
-          it push https://$GH_TOKEN@github.com/Billones142/TP2-GestorEmails.git HEAD:reports
+          git push https://$GH_TOKEN@github.com/Billones142/TP2-GestorEmails.git HEAD:reports
