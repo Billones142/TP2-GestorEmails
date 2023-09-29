@@ -44,11 +44,11 @@ jobs:
       run: |
         git config --global user.email "actions@github.com"
         git config --global user.name "GitHub Actions"
-        
+  
         git add target/my-reports/*
         git commit -m "Add generated files"
-        
+  
         git config --global credential.helper store
         git remote add origin https://$GH_TOKEN@github.com/Billones142/TP2-GestorEmails.git
-        
+  
         git push origin reports
