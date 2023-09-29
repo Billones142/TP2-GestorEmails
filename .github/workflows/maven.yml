@@ -39,6 +39,4 @@ jobs:
           git commit -m "Add generated files"
   
           git config --global credential.helper store
-          git remote add origin https://$GH_TOKEN@github.com/Billones142/TP2-GestorEmails.git
-  
-          git push origin reports
+          it push https://$GH_TOKEN@github.com/Billones142/TP2-GestorEmails.git HEAD:reports
