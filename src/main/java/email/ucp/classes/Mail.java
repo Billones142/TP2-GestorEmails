@@ -3,10 +3,15 @@ package email.ucp.classes;
 import java.util.ArrayList;
 
 public class Mail {
-    private String from;
-    private ArrayList<String> to;
-    private String subject;
-    private String content;
+    public Mail(String fromMail) {
+        super();
+        setFrom(fromMail);
+    }
+
+    private String from= new String();
+    private ArrayList<String> to= new ArrayList<String>();
+    private String subject= new String();
+    private String content= new String();
 
 
     //           INICIO ENCAPSULACION           //
@@ -42,4 +47,8 @@ public class Mail {
         return subject;
     }
     //           FIN ENCAPSULACION           //
+
+    /*public void addNewTo(String email){ //TODO
+        getTo().add(email);
+    }*/
 }

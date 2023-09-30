@@ -1,5 +1,7 @@
 package email.ucp.classes;
 
+import java.util.ArrayList;
+
 public class User {
     public User(String newFullName, String direction) {
         super();
@@ -10,6 +12,8 @@ public class User {
 
     private String fullName;
     private String direction;
+    private ArrayList<String> contactos;
+
     public Tray bandeja;
 
     //           INICIO ENCAPSULACION           //
@@ -28,5 +32,30 @@ public class User {
     public String getDirection() {
         return direction;
     }
+
+    public ArrayList<String> getContactos() {
+        return contactos;
+    }
+
+    public String getContactos(int index) {
+        return contactos.get(index);
+    }
+
+    public void setContactos(ArrayList<String> contactos) {
+        this.contactos = contactos;
+    }
     //           FIN ENCAPSULACION           //
+
+    public void addNewContact(String direction){
+        getContactos().add(direction);
+    }
+
+    public Mail createNewEmail(String subject, String content, ArrayList<String> toEmail){ //TODO
+        Mail mail = new Mail(getDirection());
+        mail.setTo(toEmail);
+        mail.setSubject(subject);
+        mail.setContent(content);
+
+        return mail;
+    }
 }
