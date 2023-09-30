@@ -23,6 +23,9 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
 
+      - name: Badge Action
+        uses: emibcn/badge-action@v2.0.2
+
       # Capture the generated files as artifacts
       - name: Capture Test Generated Files
         uses: actions/upload-artifact@v2
