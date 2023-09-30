@@ -1,5 +1,6 @@
 # TP2-GestorEmails
 alumno: Stefano Merino De Rui
+
 Proyecto presentado como Trabajo Práctico 2 en el Ciclo Lectivo 2023 para la materia Paradigmas y Lenguajes de Programación de la carrera Ingeniería en Sistemas de Información, Universidad de la Cuenca del Plata.
 
 ## Test
