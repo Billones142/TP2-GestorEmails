@@ -45,5 +45,4 @@ jobs:
           git config --global user.name "Billones142"
           git add target/my-reports/*
           git commit -m "Add generated files"
-          git config --global credential.helper store
-          git push https://github.com/Billones142/TP2-GestorEmails.git HEAD:reports
+          git push https://Billones142:${{ secrets.GH_TOKEN }}@github.com/Billones142/TP2-GestorEmails.git HEAD:reports
