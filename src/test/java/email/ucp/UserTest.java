@@ -26,8 +26,6 @@ public class UserTest {
         ArrayList<String> to= new ArrayList<String>();
         to.add("alumnado@ucp.edu.ar");
 
-        Mail mail= usuario.sendNewEmail("test", "hello world", to);
         
-        assertEquals(mail);
     }
 }

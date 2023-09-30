@@ -12,7 +12,7 @@ public class User {
 
     private String fullName;
     private String direction;
-    private ArrayList<String> contactos;
+    public ArrayList<Contact> contacts;
 
     public Tray bandeja;
 
@@ -32,22 +32,10 @@ public class User {
     public String getDirection() {
         return direction;
     }
-
-    public ArrayList<String> getContactos() {
-        return contactos;
-    }
-
-    public String getContactos(int index) {
-        return contactos.get(index);
-    }
-
-    public void setContactos(ArrayList<String> contactos) {
-        this.contactos = contactos;
-    }
     //           FIN ENCAPSULACION           //
 
-    public void addNewContact(String direction){
-        getContactos().add(direction);
+    public void addNewContact(String name,String direction){
+        contacts.add(new Contact(name, direction));
     }
 
     public Mail createNewEmail(String subject, String content, ArrayList<String> toEmail){ //TODO
