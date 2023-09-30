@@ -5,6 +5,7 @@ Proyecto presentado como Trabajo Práctico 2 en el Ciclo Lectivo 2023 para la ma
 ## Test
 
 **[Resutados de los test](https://billones142.github.io/TP2-GestorEmails/)** [![Java test with Maven](https://github.com/Billones142/TP2-GestorEmails/actions/workflows/maven.yml/badge.svg)](https://github.com/Billones142/TP2-GestorEmails/actions/workflows/maven.yml)
+
 [![Pagina Web](https://github.com/Billones142/TP2-GestorEmails/actions/workflows/pages/pages-build-deployment/badge.svg)](https://github.com/Billones142/TP2-GestorEmails/actions/workflows/pages/pages-build-deployment)
 
 ## Entregables
