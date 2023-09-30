@@ -1,14 +1,11 @@
 # TP2-GestorEmails
 alumno: Stefano Merino De Rui
-
-https://billones142.github.io/TP2-GestorEmails/
-
-[![Java test with Maven](https://github.com/Billones142/TP2-GestorEmails/actions/workflows/maven.yml/badge.svg)](https://github.com/Billones142/TP2-GestorEmails/actions/workflows/maven.yml)
-[![pages-build-deployment](https://github.com/Billones142/TP2-GestorEmails/actions/workflows/pages/pages-build-deployment/badge.svg)](https://github.com/Billones142/TP2-GestorEmails/actions/workflows/pages/pages-build-deployment)
-
-# Gestor de Email
-
 Proyecto presentado como Trabajo Práctico 2 en el Ciclo Lectivo 2023 para la materia Paradigmas y Lenguajes de Programación de la carrera Ingeniería en Sistemas de Información, Universidad de la Cuenca del Plata.
+
+## Test
+
+https://billones142.github.io/TP2-GestorEmails/ [![Java test with Maven](https://github.com/Billones142/TP2-GestorEmails/actions/workflows/maven.yml/badge.svg)](https://github.com/Billones142/TP2-GestorEmails/actions/workflows/maven.yml)
+[![pages-build-deployment](https://github.com/Billones142/TP2-GestorEmails/actions/workflows/pages/pages-build-deployment/badge.svg)](https://github.com/Billones142/TP2-GestorEmails/actions/workflows/pages/pages-build-deployment)
 
 ## Entregables
 
