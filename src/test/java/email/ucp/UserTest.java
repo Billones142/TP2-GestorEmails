@@ -15,7 +15,7 @@ public class UserTest {
         User usuario= new User("Stefano Merino","stefanomerinoderui@gmail.com");
         assertNotEquals(null , usuario);
 
-        assertEquals("Stefano", usuario.getFullName());
+        assertEquals("Stefano Merino", usuario.getFullName());
         assertEquals("stefanomerinoderui@gmail.com" , usuario.getDirection());
     }
 
@@ -25,7 +25,5 @@ public class UserTest {
 
         ArrayList<String> to= new ArrayList<String>();
         to.add("alumnado@ucp.edu.ar");
-
-        
     }
 }
