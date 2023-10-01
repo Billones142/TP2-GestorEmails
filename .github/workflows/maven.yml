@@ -1,4 +1,4 @@
-name: Java CI with Maven
+name: Java Test Jacoco
 
 on:
   push:
@@ -6,11 +6,8 @@ on:
   pull_request:
     branches: [ "main" ]
 
-# Set the access for individual scopes, or use permissions: write-all
 permissions:
-  pull-requests: write
-  issues: write
-  repository-projects: write
+  write-all
 
 jobs:
   build:
