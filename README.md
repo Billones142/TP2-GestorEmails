@@ -1,3 +1,4 @@
+markdown: kramdown
 <!-- profe, si ve esto me debe un 10 -->
 # TP2-GestorEmails
 Alumno: Stefano Merino De Rui
