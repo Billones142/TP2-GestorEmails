@@ -43,6 +43,7 @@ jobs:
           
           git checkout -- src/
           rm -rf src
+          git add src/
 
           git checkout -- .gitignore
           rm .gitignore
