@@ -38,14 +38,10 @@ jobs:
 
       - name: Commit and Push Generated Files
         run: |
-          rm -rf .git
-          git config --global init.defaultBranch reports
-          git init
-          git remote add origin https://$GH_TOKEN@github.com/Billones142/TP2-GestorEmails.git
-          git config --global push.autoSetupRemote true
           git config --global user.email "stefanomerinoderui@gmail.com"
           git config --global user.name "Billones142"
+          git checkout -- src/
+          rm -rf src
           git add target/my-reports/*
           git commit -m "Add generated files"
-          git config --global user.name "Billones142"
-          git push --force origin reports
+          git push --force https://$GH_TOKEN@github.com/Billones142/TP2-GestorEmails.git HEAD:reports
