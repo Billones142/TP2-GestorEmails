@@ -2,9 +2,9 @@ name: PercentageBadge
 
 on:
   push:
-    branches: [ "main" ]
+    branches: [ "reports" ]
   pull_request:
-    branches: [ "main" ]
+    branches: [ "reports" ]
 
 permissions:
   write-all
