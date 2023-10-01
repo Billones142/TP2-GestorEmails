@@ -41,7 +41,7 @@ jobs:
           git config --global user.email "stefanomerinoderui@gmail.com"
           git config --global user.name "Billones142"
           git checkout -- src/
-          rm -rf my-folder
+          rm -rf src
           git add .
           git add target/my-reports/*
           git commit -m "Add generated files"
