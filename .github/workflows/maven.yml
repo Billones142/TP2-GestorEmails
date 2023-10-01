@@ -43,4 +43,4 @@ jobs:
           cd target/my-reports
           git add *
           git commit -m "Add generated files"
-          git push https://$GH_TOKEN@github.com/Billones142/TP2-GestorEmails.git HEAD:reports
+          git push --force https://$GH_TOKEN@github.com/Billones142/TP2-GestorEmails.git HEAD:reports
