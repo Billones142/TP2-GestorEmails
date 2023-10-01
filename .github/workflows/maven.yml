@@ -36,6 +36,11 @@ jobs:
           name: report
           path: target/my-reports/ # Adjust the path to match your generated files
 
+      - name: Upload coverage reports to Codecov
+        uses: codecov/codecov-action@v3
+        env:
+          CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
+    
       - name: Commit and Push Generated Files
         run: |
           git config --global user.email "stefanomerinoderui@gmail.com"
