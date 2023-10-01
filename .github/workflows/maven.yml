@@ -41,6 +41,7 @@ jobs:
           rm -rf .git
           git init
           git remote add reports https://$GH_TOKEN@github.com/Billones142/TP2-GestorEmails.git
+          git config --global push.autoSetupRemote true
           git config --global user.email "stefanomerinoderui@gmail.com"
           git config --global user.name "Billones142"
           git add target/my-reports/*
