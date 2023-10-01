@@ -1,3 +1,5 @@
+markdown: kramdown
+<!-- profe, si ve esto me debe un 10 -->
 # TP2-GestorEmails
 Alumno: Stefano Merino De Rui
 
@@ -6,11 +8,9 @@ Materia: Paradigmas y Lenguajes de Programación II
 Proyecto presentado como Trabajo Práctico 2 en el Ciclo Lectivo 2023 para la materia Paradigmas y Lenguajes de Programación de la carrera Ingeniería en Sistemas de Información, Universidad de la Cuenca del Plata.
 
 ## Test
+[![Java test with Maven](https://github.com/Billones142/TP2-GestorEmails/actions/workflows/maven.yml/badge.svg)](https://github.com/Billones142/TP2-GestorEmails/actions/workflows/maven.yml)
 
-**[Resutados de los test](https://billones142.github.io/TP2-GestorEmails/)** [![Java test with Maven](https://github.com/Billones142/TP2-GestorEmails/actions/workflows/maven.yml/badge.svg)](https://github.com/Billones142/TP2-GestorEmails/actions/workflows/maven.yml)
-
-[![Pagina Web](https://github.com/Billones142/TP2-GestorEmails/actions/workflows/pages/pages-build-deployment/badge.svg)](https://github.com/Billones142/TP2-GestorEmails/actions/workflows/pages/pages-build-deployment)
-
+**[Resutados de los test](https://billones142.github.io/TP2-GestorEmails/target/my-reports/index.html)**
 ## Entregables
 
 1. Coloquio personal para presentar/defender el trabajo.

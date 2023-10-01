@@ -1,10 +1,13 @@
-name: Java CI with Maven
+name: Java Test Jacoco
 
 on:
   push:
     branches: [ "main" ]
   pull_request:
     branches: [ "main" ]
+
+permissions:
+  write-all
 
 jobs:
   build:
@@ -37,7 +40,8 @@ jobs:
         run: |
           git config --global user.email "stefanomerinoderui@gmail.com"
           git config --global user.name "Billones142"
+          git checkout -- src/
+          rm -rf src
           git add target/my-reports/*
           git commit -m "Add generated files"
-          git config --global credential.helper store
-          git push https://github.com/Billones142/TP2-GestorEmails.git HEAD:reports
+          git push --force https://$GH_TOKEN@github.com/Billones142/TP2-GestorEmails.git HEAD:reports
