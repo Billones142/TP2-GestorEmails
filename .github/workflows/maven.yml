@@ -57,6 +57,7 @@ jobs:
           rm pom.xml
           git add pom.xml
 
+          git fetch origin
           git checkout reports
           git checkout README.md
           git add README.md
