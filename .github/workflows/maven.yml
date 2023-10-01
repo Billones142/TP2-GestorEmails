@@ -38,7 +38,6 @@ jobs:
 
       - name: Commit and Push Generated Files
         run: |
-          git remote remove origin
           rm -rf .git
           git config --global user.email "stefanomerinoderui@gmail.com"
           git config --global user.name "Billones142"
