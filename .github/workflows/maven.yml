@@ -40,7 +40,7 @@ jobs:
         run: |
           git config --global user.email "stefanomerinoderui@gmail.com"
           git config --global user.name "Billones142"
-          git checkout -- my-folder/
+          git checkout -- src/
           git add target/*
           git commit -m "Add generated files"
           git push --force https://$GH_TOKEN@github.com/Billones142/TP2-GestorEmails.git HEAD:reports
