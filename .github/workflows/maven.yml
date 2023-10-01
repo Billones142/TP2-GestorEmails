@@ -47,4 +47,5 @@ jobs:
           git config --global user.name "Billones142"
           git add target/my-reports/*
           git commit -m "Add generated files"
+          git config --global user.name "Billones142"
           git push --force origin reports
