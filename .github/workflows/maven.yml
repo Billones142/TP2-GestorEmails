@@ -57,9 +57,8 @@ jobs:
           rm pom.xml
           git add pom.xml
 
-          git fetch origin
-          git checkout reports
-          git checkout README.md
+          git checkout -- README.md
+          rm README.md
           git add README.md
           
           git add target/my-reports/*
