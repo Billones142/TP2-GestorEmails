@@ -1,6 +1,0 @@
-GROUP,PACKAGE,CLASS,INSTRUCTION_MISSED,INSTRUCTION_COVERED,BRANCH_MISSED,BRANCH_COVERED,LINE_MISSED,LINE_COVERED,COMPLEXITY_MISSED,COMPLEXITY_COVERED,METHOD_MISSED,METHOD_COVERED
-Email,email.ucp.classes,Contact,23,0,0,0,10,0,5,0,5,0
-Email,email.ucp.classes,Mail,54,0,0,0,19,0,9,0,9,0
-Email,email.ucp.classes,User,27,29,0,0,7,11,2,5,2,5
-Email,email.ucp.classes,Dealer,4,0,0,0,2,0,2,0,2,0
-Email,email.ucp.classes,Tray,21,10,2,0,3,5,5,2,4,2
