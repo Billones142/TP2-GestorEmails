@@ -66,7 +66,6 @@ jobs:
 
           git checkout -- README.md
           rm README.md
-          git add README.md
           
           git add target/my-reports/*
           git commit -m "Add generated files"
