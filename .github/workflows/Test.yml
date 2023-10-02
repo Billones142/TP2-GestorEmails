@@ -36,30 +36,7 @@ jobs:
           name: report
           path: target/my-reports/ # Adjust the path to match your generated files
 
-      - name: Check test coverage
-        uses: johanvanhelden/gha-clover-test-coverage-check@v1
-        id: coverage
-        with:
-          percentage: "90"
-          filename: "target/my-reports/jacoco.xml"
 
-      - name: Generate the badge SVG image
-        uses: emibcn/badge-action@v1
-        id: badge
-        with:
-          label: 'Coverage'
-          status: ${{ steps.coverage.outputs.coverage }}
-          path: ./badges/test-coverage.svg
-          color: ${{
-            steps.coverage.outputs.coverage > 90 && 'green'              ||
-            steps.coverage.outputs.coverage > 80 && 'yellow,green'       ||
-            steps.coverage.outputs.coverage > 70 && 'yellow'             ||
-            steps.coverage.outputs.coverage > 60 && 'orange,yellow'      ||
-            steps.coverage.outputs.coverage > 50 && 'orange'             ||
-            steps.coverage.outputs.coverage > 40 && 'red,orange'         ||
-            steps.coverage.outputs.coverage > 30 && 'red,red,orange'     ||
-            steps.coverage.outputs.coverage > 20 && 'red,red,red,orange' ||
-            'red' }}
 
       - name: Upload coverage reports to Codecov
         uses: codecov/codecov-action@v3
