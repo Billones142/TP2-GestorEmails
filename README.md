@@ -22,12 +22,12 @@ Proyecto presentado como Trabajo Práctico 2 en el Ciclo Lectivo 2023 para la ma
 
 Desarrollar un sistema de gestión de correo electrónico en Java con TDD:
 
-1. [ ] El usuario podrá crear un correo electrónico con:
+1. [X] El usuario podrá crear un correo electrónico con:
     - Asunto.
     - Contenido.
     - Remitente.
     - Para (se debe poder enviar a múltiples contactos).
-3. [ ] Un Contacto es un objeto con:
+3. [X] Un Contacto es un objeto con:
 
     - Nombre.
     - Email.
