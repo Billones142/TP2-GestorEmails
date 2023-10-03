@@ -14,6 +14,4 @@ public class DealerTest {
     public void sendEmailTest(){// TODO
         
     }
-
-    
 }

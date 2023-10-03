@@ -20,13 +20,18 @@ public class Tray {
         return propietaryDirection;
     }
 
+    public ArrayList<Mail> getMails() {
+        return mails;
+    }
+    
+    //           FIN ENCAPSULACION           //
+
     @SuppressWarnings("unchecked")
     public ArrayList<Mail> getMailsRecieved() {
         return (ArrayList<Mail>) mails.stream().filter(mail -> mail.getFrom() == this.getPropietaryDirection());
     }
-    //           FIN ENCAPSULACION           //
 
-    public void add(){
-        
+    public void add(Mail newMail){
+        mails.add(newMail);
     };
 }

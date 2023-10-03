@@ -50,5 +50,5 @@ Se deben poder crear filtros
 Los filtros son carpetas que no contienen correos sino que filtran en base a elementos del email (parte del asunto, parte del contenido, remitente o alguien en para)
 Un usuario puede buscar correos en la bandeja de entrada. Lo puede hacer por un texto en cualquiera de los campos textos que tiene (asunto, contenido, remitente o para)
 Los filtros deben tener un nombre: 
-ejemplo “Correos de la UCP”, que deben buscar correos que los haya enviando un email con @ucp.edu.ar
+    * ejemplo “Correos de la UCP”, que deben buscar correos que los haya enviando un email con @ucp.edu.ar
 Se requiere poder tener 5 filtros generados (2 o 3 de ellos complejos, es decir que puedan buscar por 2 o más campos simultáneamente)

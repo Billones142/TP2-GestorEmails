@@ -12,6 +12,7 @@ public class User {
 
     private String fullName;
     private String direction;
+
     public ArrayList<Contact> contacts;
 
     public Tray bandeja;
@@ -32,6 +33,8 @@ public class User {
     public String getDirection() {
         return direction;
     }
+
+    
     //           FIN ENCAPSULACION           //
 
     public void addNewContact(String name,String direction){
@@ -43,6 +46,8 @@ public class User {
         mail.setTo(toEmail);
         mail.setSubject(subject);
         mail.setContent(content);
+
+        bandeja.add(mail);
 
         return mail;
     }
