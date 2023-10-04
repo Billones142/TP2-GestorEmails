@@ -19,7 +19,7 @@ public class UserTest {
         assertEquals("stefanomerinoderui@gmail.com" , usuario.getDirection());
     }
 
-    /*@Test
+    @Test
     public void createEmailTest(){
         User usuario= new User("stefano","stefanomerinoderui@gmail.com");
 
@@ -32,7 +32,7 @@ public class UserTest {
         assertEquals("Test", mail.getSubject());
         assertEquals("Hello World", mail.getContent());
         assertEquals(to.get(0), mail.getTo().get(0));
-    }*/
+    }
 
     @Test
     public void addNewContactTest(){// TODO

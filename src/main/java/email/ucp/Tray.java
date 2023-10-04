@@ -7,6 +7,7 @@ public class Tray {
     public Tray(String direction) {
         super();
         setPropietaryDirection(direction);
+        mails= new ArrayList<Mail>();
     }
 
     String propietaryDirection;
