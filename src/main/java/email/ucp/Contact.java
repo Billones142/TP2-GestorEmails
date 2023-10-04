@@ -1,4 +1,4 @@
-package email.ucp.classes;
+package email.ucp;
 
 public class Contact {
     public Contact(String name, String mail) {

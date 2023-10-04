@@ -1,4 +1,4 @@
-package email.ucp.classes;
+package email.ucp;
 
 import java.util.ArrayList;
 
