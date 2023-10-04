@@ -6,6 +6,7 @@ public class Mail {
     public Mail(String fromMail) {
         super();
         setFrom(fromMail);
+        // TODO: verificar que el to sea válido
     }
 
     private String from= new String();
