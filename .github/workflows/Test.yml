@@ -26,6 +26,19 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
 
+      - name: JaCoCo Code Coverage Report
+        id: jacoco_reporter
+        uses: PavanMudigonda/jacoco-reporter@v4.8
+        with:
+          coverage_results_path: target/my-reports/test.xml
+          coverage_report_name: Coverage
+          coverage_report_title: JaCoCo
+          github_token: ${{ secrets.GH_TOKEN }}
+          skip_check_run: false
+          minimum_coverage: 90
+          fail_below_threshold: false
+          publish_only_summary: false
+
       - name: Badge Action
         uses: emibcn/badge-action@v2.0.2
 
