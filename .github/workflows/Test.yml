@@ -26,6 +26,15 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
 
+      - name: Generate code coverage report
+        run: cobertura:cobertura -c *.xml
+
+      - name: Store code coverage report
+        uses: actions/upload-artifact@v3
+        with:
+          name: coverage-report
+          path: coverage.xml
+
       - name: Badge Action
         uses: emibcn/badge-action@v2.0.2
 
