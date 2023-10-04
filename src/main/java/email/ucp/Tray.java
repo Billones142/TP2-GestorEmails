@@ -1,6 +1,7 @@
 package email.ucp;
 
 import java.util.ArrayList;
+import java.util.function.Predicate;
 
 public class Tray {
     public Tray(String direction) {
@@ -10,6 +11,15 @@ public class Tray {
 
     String propietaryDirection;
     private ArrayList<Mail> mails;
+
+    // Predicados
+    Predicate<Mail> ucp= mail-> mail instanceof Mail; //TODO
+    Predicate<Mail> ucp1= mail-> mail instanceof Mail; //TODO
+    Predicate<Mail> ucp2= mail-> mail instanceof Mail; //TODO
+    Predicate<Mail> ucp3= mail-> mail instanceof Mail; //TODO
+    Predicate<Mail> ucp4= mail-> mail instanceof Mail; //TODO
+    Predicate<Mail> ucp5= mail-> mail instanceof Mail; //TODO
+
 
     //           INICIO ENCAPSULACION           //
     public void setPropietaryDirection(String propietaryDirection) {
@@ -34,4 +44,6 @@ public class Tray {
     public void add(Mail newMail){
         mails.add(newMail);
     };
+
+
 }

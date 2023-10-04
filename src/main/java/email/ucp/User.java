@@ -8,6 +8,7 @@ public class User {
         setFullName(newFullName);
         setDirection(direction);
         bandeja= new Tray(direction);
+        contacts= new ArrayList<Contact>();
     }
 
     private String fullName;

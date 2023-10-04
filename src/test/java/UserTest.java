@@ -2,8 +2,9 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
-//import java.util.ArrayList;
-import email.ucp.User;
+import java.util.ArrayList;
+import email.ucp.*;
+
 
 
 public class UserTest {
@@ -16,9 +17,9 @@ public class UserTest {
         assertEquals("stefanomerinoderui@gmail.com" , usuario.getDirection());
     }
 
-    /*@Test
+    @Test
     public void createEmailTest(){
-        User usuario= new User("stefano","stefanomerinoderui@gmail.com");
+        /*User usuario= new User("stefano","stefanomerinoderui@gmail.com");
 
         ArrayList<String> to= new ArrayList<String>();
         to.add("alumnado@ucp.edu.ar");
@@ -28,7 +29,7 @@ public class UserTest {
         assertEquals(usuario.getDirection(), mail.getFrom());
         assertEquals("Test", mail.getSubject());
         assertEquals("Hello World", mail.getContent());
-        assertEquals(to.get(0), mail.getTo().get(0));
+        assertEquals(to.get(0), mail.getTo().get(0));*/
     }
 
     @Test
@@ -40,5 +41,5 @@ public class UserTest {
         Contact contact= user.contacts.get(0);
         assertEquals("juancito", contact.getName());
         assertEquals("juancapo@hotmail.com", contact.getMail());
-    }*/
+    }
 }
