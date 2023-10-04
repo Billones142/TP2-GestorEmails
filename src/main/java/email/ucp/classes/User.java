@@ -33,8 +33,6 @@ public class User {
     public String getDirection() {
         return direction;
     }
-
-    
     //           FIN ENCAPSULACION           //
 
     public void addNewContact(String name,String direction){
