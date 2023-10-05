@@ -14,7 +14,7 @@ Proyecto presentado como Trabajo Práctico 2 en el Ciclo Lectivo 2023 para la ma
 
 **[Code covered(codecov)](https://codecov.io/gh/Billones142/TP2-GestorEmails)**
 
-![Graph](https://codecov.io/gh/Billones142/TP2-GestorEmails/graphs/sunburst.svg?token=1134BUN664)
+[![Graph](https://codecov.io/gh/Billones142/TP2-GestorEmails/graphs/sunburst.svg?token=1134BUN664)](https://codecov.io/gh/Billones142/TP2-GestorEmails)
 ## Entregables
 
 1. Coloquio personal para presentar/defender el trabajo.
