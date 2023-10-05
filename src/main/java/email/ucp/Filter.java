@@ -7,8 +7,11 @@ import java.util.stream.Collectors;
 public class Filter {
 
     // predicados
-    public Predicate<Mail> getFrom(String mailDirection) {
-        boolean isFromUCP= true;
+    public Predicate<Mail> getFrom(String address) {
+        boolean isFromUCP= false;
+        if(address.trim().contains("@")){
+            
+        }
         return mail-> isFromUCP;
     }
 
