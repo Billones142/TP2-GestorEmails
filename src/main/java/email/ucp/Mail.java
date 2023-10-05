@@ -20,7 +20,7 @@ public class Mail {
         return from;
     }
 
-    public void setFrom(String direction){
+    private void setFrom(String direction){
         from= direction;
     }
 
@@ -49,7 +49,7 @@ public class Mail {
     }
     //           FIN ENCAPSULACION           //
 
-    /*public void addNewTo(String email){ //TODO
+    public void addNewTo(String email){ //TODO
         getTo().add(email);
-    }*/
+    }
 }

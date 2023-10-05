@@ -5,7 +5,6 @@ import static org.junit.Assert.*;
 import org.junit.Test;
 
 import java.util.ArrayList;
-import email.ucp.Contact;
 
 
 
@@ -21,7 +20,7 @@ public class UserTest {
 
     @Test
     public void createEmailTest(){
-        User usuario= new User("stefano","stefanomerinoderui@gmail.com");
+        User usuario= new User("Stefano Merino","stefanomerinoderui@gmail.com");
 
         ArrayList<String> to= new ArrayList<String>();
         to.add("alumnado@ucp.edu.ar");
@@ -36,7 +35,7 @@ public class UserTest {
 
     @Test
     public void addNewContactTest(){// TODO
-        User user= new User("Stefano", "stefanomerinoderui@gmail.com");
+        User user= new User("Stefano Merino", "stefanomerinoderui@gmail.com");
 
         user.addNewContact("juancito", "juancapo@hotmail.com");
 

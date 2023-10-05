@@ -10,16 +10,16 @@ public class Tray {
         mails= new ArrayList<Mail>();
     }
 
-    String propietaryDirection;
+    private String propietaryDirection;
     private ArrayList<Mail> mails;
 
     // Predicados
-    Predicate<Mail> ucp= mail-> mail instanceof Mail; //TODO
-    Predicate<Mail> ucp1= mail-> mail instanceof Mail; //TODO
-    Predicate<Mail> ucp2= mail-> mail instanceof Mail; //TODO
-    Predicate<Mail> ucp3= mail-> mail instanceof Mail; //TODO
-    Predicate<Mail> ucp4= mail-> mail instanceof Mail; //TODO
-    Predicate<Mail> ucp5= mail-> mail instanceof Mail; //TODO
+    private Predicate<Mail> ucp= mail-> mail instanceof Mail; //TODO
+    private Predicate<Mail> ucp1= mail-> mail instanceof Mail; //TODO
+    private Predicate<Mail> ucp2= mail-> mail instanceof Mail; //TODO
+    private Predicate<Mail> ucp3= mail-> mail instanceof Mail; //TODO
+    private Predicate<Mail> ucp4= mail-> mail instanceof Mail; //TODO
+    private Predicate<Mail> ucp5= mail-> mail instanceof Mail; //TODO
 
 
     //           INICIO ENCAPSULACION           //

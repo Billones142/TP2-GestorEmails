@@ -8,7 +8,10 @@ import org.junit.Test;
 public class TrayTest {
     @Test
     public void trayTest(){// TODO
-        assertNotNull(1);
+        Tray bandeja= new Tray("stefanomerinoderui@gmail.com");
+
+        assertNotEquals(null, bandeja);
+        assertEquals("stefanomerinoderui@gmail.com", bandeja.getPropietaryDirection());
     }
 
     @Test
