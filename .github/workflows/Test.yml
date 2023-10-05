@@ -49,13 +49,13 @@ jobs:
           label: 'Test coverage'
           status: '{{ GITHUB_STEP_SUMMARY }}'
           color: 'blue,555,daf'
-          path: '.github/badges/coverage.svg'
+          path: '.github/badges/badge.svg'
 
       - name: upload badge
         uses: actions/upload-artifact@v3
         with:
           name: badge.svg
-          path: ./badge.svg
+          path: .github/badges/badge.svg
 
       - name: Upload coverage reports to Codecov
         uses: codecov/codecov-action@v3
