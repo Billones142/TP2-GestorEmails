@@ -11,6 +11,7 @@ Proyecto presentado como Trabajo Práctico 2 en el Ciclo Lectivo 2023 para la ma
 ![Badge](https://raw.githubusercontent.com/Billones142/TP2-GestorEmails/reports/badge.svg)
 
 **[Resutados de los test](https://billones142.github.io/TP2-GestorEmails/target/my-reports/index.html)**
+
 **[Code covered(codecov)](https://codecov.io/gh/Billones142/TP2-GestorEmails)**
 ## Entregables
 
