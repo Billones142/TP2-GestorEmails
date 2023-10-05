@@ -87,12 +87,6 @@ jobs:
             git add "${BRANCH}/badge.svg"
             git commit -m "Add/Update badge"
           popd
-      - name: Push badge commit
-        uses: ad-m/github-push-action@master
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          branch: badges
-          directory: badges
 
       - name: Upload coverage reports to Codecov
         uses: codecov/codecov-action@v3
