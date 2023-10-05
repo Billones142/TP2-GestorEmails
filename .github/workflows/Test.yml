@@ -51,6 +51,12 @@ jobs:
           color: 'blue,555,daf'
           path: '.github/badges/coverage.svg'
 
+      - name: Generate badge
+        uses: actions/upload-artifact@v3
+        with:
+          name: badge.svg
+          path: ./badge.svg
+
       - name: Upload coverage reports to Codecov
         uses: codecov/codecov-action@v3
         env:
