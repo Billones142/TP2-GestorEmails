@@ -43,19 +43,56 @@ jobs:
       - name: Add Coverage Job Summary
         run: echo "${{ steps.jacoco_reporter.outputs.coverageSummary }}" >> $GITHUB_STEP_SUMMARY
 
+      - name: Generate a coverage value
+        id: coverage
+        # Generates a GitHub Workflow output named `lines`
+        run: |
+          COVERAGE="$GITHUB_STEP_SUMMARY"
+          echo "##[set-output name=lines;]${COVERAGE}%"
+      - name: Extract branch name
+        shell: bash
+        run: echo "##[set-output name=branch;]$(echo ${GITHUB_REF#refs/heads/})"
+        id: extract_branch
+      - uses: actions/checkout@v1
+        with:
+          ref: badges
+          path: badges
+      - name: Create badges dir if necessary
+        env:
+          BRANCH: ${{ steps.extract_branch.outputs.branch }}
+        run: mkdir -p badges/${BRANCH}
       - name: create badge
         uses: emibcn/badge-action@v2.0.2
         with:
           label: 'Test coverage'
           status: '{{ GITHUB_STEP_SUMMARY }}'
-          color: 'blue,555,daf'
           path: '.github/badges/badge.svg'
-
-      - name: upload badge
-        uses: actions/upload-artifact@v3
+          color: ${{
+            steps.coverage.outputs.coverage > 90 && 'green'              ||
+            steps.coverage.outputs.coverage > 80 && 'yellow,green'       ||
+            steps.coverage.outputs.coverage > 70 && 'yellow'             ||
+            steps.coverage.outputs.coverage > 60 && 'orange,yellow'      ||
+            steps.coverage.outputs.coverage > 50 && 'orange'             ||
+            steps.coverage.outputs.coverage > 40 && 'red,orange'         ||
+            steps.coverage.outputs.coverage > 30 && 'red,red,orange'     ||
+            steps.coverage.outputs.coverage > 20 && 'red,red,red,orange' ||
+            'red' }}
+      - name: Commit badge
+        env:
+          BRANCH: ${{ steps.extract_branch.outputs.branch }}
+        run: |
+          pushd badges
+            git config --local user.email "action@github.com"
+            git config --local user.name "GitHub Action"
+            git add "${BRANCH}/badge.svg"
+            git commit -m "Add/Update badge"
+          popd
+      - name: Push badge commit
+        uses: ad-m/github-push-action@master
         with:
-          name: badge.svg
-          path: .github/badges/badge.svg
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          branch: badges
+          directory: badges
 
       - name: Upload coverage reports to Codecov
         uses: codecov/codecov-action@v3
@@ -88,4 +125,4 @@ jobs:
           
           git add target/my-reports/*
           git commit -m "Add generated files"
-          git push --force https://$GH_TOKEN@github.com/Billones142/TP2-GestorEmails.git HEAD:reports
+          git push --force https://$secrets.GITHUB_TOKEN@github.com/Billones142/TP2-GestorEmails.git HEAD:reports
