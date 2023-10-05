@@ -7,16 +7,15 @@ public class User {
         super();
         setFullName(newFullName);
         setDirection(direction);
-        bandeja= new Tray(direction);
         contacts= new ArrayList<Contact>();
+        mails= new ArrayList<Mail>();
     }
 
     private String fullName;
     private String direction;
 
     public ArrayList<Contact> contacts;
-
-    public Tray bandeja;
+    public ArrayList<Mail> mails;
 
     //           INICIO ENCAPSULACION           //
     public void setFullName(String fullName) {
@@ -46,7 +45,7 @@ public class User {
         mail.setSubject(subject);
         mail.setContent(content);
 
-        bandeja.add(mail);
+        mails.add(mail);
 
         return mail;
     }

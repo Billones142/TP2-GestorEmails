@@ -52,7 +52,7 @@ public class Dealer {
                 break;
             }
 
-            getUser(userIndex).bandeja.add(newMail);
+            getUser(userIndex).mails.add(newMail);
         }
     }
 }
