@@ -34,10 +34,13 @@ public class Tray {
     public ArrayList<Mail> getMails() {
         return mails;
     }
+
+    public Predicate<Mail> getUcp() {
+        return ucp;
+    }
     
     //           FIN ENCAPSULACION           //
 
-    @SuppressWarnings("unchecked")
     public ArrayList<Mail> getMailsRecieved() {
         return (ArrayList<Mail>) mails.stream().filter(mail -> mail.getFrom() == this.getPropietaryDirection());
     }
@@ -46,5 +49,32 @@ public class Tray {
         mails.add(newMail);
     };
 
+    public ArrayList<Mail> getFilteredMails_Send(){ //TODO
+        ArrayList<Mail> filteredMails;
 
+        
+        filteredMails= (ArrayList<Mail>)mails.stream().filter(send);
+
+        return filteredMails;
+    }
+
+    public ArrayList<Mail> getFilteredMails_FromUCP(){ //TODO
+        ArrayList<Mail> filteredMails;
+
+        
+        filteredMails= (ArrayList<Mail>)mails.stream().filter(ucp);
+
+        return filteredMails;
+    }
+
+
+
+    public ArrayList<Mail> getFilteredMails_From(String fromMail){ //TODO
+        ArrayList<Mail> filteredMails;
+
+        
+        filteredMails= (ArrayList<Mail>)mails.stream().filter(mail -> mail.getFrom() == fromMail);
+
+        return filteredMails;
+    }
 }
