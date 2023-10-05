@@ -53,7 +53,7 @@ jobs:
         uses: emibcn/badge-action@v2.0.2
         with:
           label: 'Test coverage'
-          status: ${{ steps.jacoco_reporter.outputs.coverageSummary }}
+          status: ${{ steps.jacoco_reporter.outputs.coveragePercentageString }}
           path: badge.svg
           color: ${{
             steps.coverage.outputs.coverage > 90 && 'green'              ||
