@@ -49,18 +49,6 @@ jobs:
         run: |
           COVERAGE="$GITHUB_STEP_SUMMARY"
           echo "##[set-output name=lines;]${COVERAGE}%"
-      - name: Extract branch name
-        shell: bash
-        run: echo "##[set-output name=branch;]$(echo ${GITHUB_REF#refs/heads/})"
-        id: extract_branch
-      - uses: actions/checkout@v1
-        with:
-          ref: badges
-          path: badges
-      - name: Create badges dir if necessary
-        env:
-          BRANCH: ${{ steps.extract_branch.outputs.branch }}
-        run: mkdir -p badges/${BRANCH}
       - name: create badge
         uses: emibcn/badge-action@v2.0.2
         with:
