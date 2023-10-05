@@ -9,7 +9,7 @@ Proyecto presentado como Trabajo Práctico 2 en el Ciclo Lectivo 2023 para la ma
 ## Test
 [![Tests](https://github.com/Billones142/TP2-GestorEmails/actions/workflows/Test.yml/badge.svg)](https://github.com/Billones142/TP2-GestorEmails/actions/workflows/Test.yml)
 [![Code covered](https://codecov.io/gh/Billones142/TP2-GestorEmails/graph/badge.svg?token=1134BUN664)](https://codecov.io/gh/Billones142/TP2-GestorEmails)
-![Coverage](.github/badges/jacoco.svg)
+![Coverage](.github/badges/badge.svg)
 
 {{ coveragePercentageString }}
 
