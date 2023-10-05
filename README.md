@@ -8,12 +8,13 @@ Proyecto presentado como Trabajo Práctico 2 en el Ciclo Lectivo 2023 para la ma
 
 ## Test
 [![Tests](https://github.com/Billones142/TP2-GestorEmails/actions/workflows/Test.yml/badge.svg)](https://github.com/Billones142/TP2-GestorEmails/actions/workflows/Test.yml)
-[![Code covered](https://codecov.io/gh/Billones142/TP2-GestorEmails/graph/badge.svg?token=1134BUN664)](https://codecov.io/gh/Billones142/TP2-GestorEmails)
-![Coverage](.github/badges/badge.svg)
-
-{{ coveragePercentageString }}
+![Badge](https://raw.githubusercontent.com/Billones142/TP2-GestorEmails/reports/badge.svg)
 
 **[Resutados de los test](https://billones142.github.io/TP2-GestorEmails/target/my-reports/index.html)**
+
+**[Code covered(codecov)](https://app.codecov.io/gh/Billones142/TP2-GestorEmails/tree/main/src%2Fmain%2Fjava%2Femail%2Fucp)**
+
+[![Graph](https://codecov.io/gh/Billones142/TP2-GestorEmails/graphs/sunburst.svg?token=1134BUN664)](https://app.codecov.io/gh/Billones142/TP2-GestorEmails/tree/main/src%2Fmain%2Fjava%2Femail%2Fucp)
 ## Entregables
 
 1. Coloquio personal para presentar/defender el trabajo.
