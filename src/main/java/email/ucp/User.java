@@ -40,7 +40,7 @@ public class User {
         contacts.add(new Contact(name, direction));
     }
 
-    public Mail createNewEmail(String subject, String content, ArrayList<String> toEmail){ //TODO
+    public Mail createNewEmail(String subject, String content, ArrayList<String> toEmail){
         Mail mail = new Mail(getDirection());
         mail.setTo(toEmail);
         mail.setSubject(subject);

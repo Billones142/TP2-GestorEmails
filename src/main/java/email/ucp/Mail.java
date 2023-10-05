@@ -6,7 +6,7 @@ public class Mail {
     public Mail(String fromMail) {
         super();
         setFrom(fromMail);
-        // TODO: verificar que el to sea válido
+        // TODO: verificar que el todo sea válido
     }
 
     private String from= new String();
@@ -49,7 +49,7 @@ public class Mail {
     }
     //           FIN ENCAPSULACION           //
 
-    public void addNewTo(String email){ //TODO
+    public void addNewTo(String email){
         getTo().add(email);
     }
 }

@@ -9,7 +9,7 @@ import org.junit.Test;
 
 public class MailTest {
     @Test
-    public void mailNotNullTest(){// TODO
+    public void mailNotNullTest(){
         Mail mail= new Mail("stefanomerinoderui@gmail.com");
 
         mail.setSubject("Test");
@@ -25,7 +25,7 @@ public class MailTest {
     }
 
     @Test
-    public void addToTest(){// TODO
+    public void addToTest(){
         Mail mail= new Mail("stefanomerinoderui@gmail.com");
 
         mail.setSubject("Test");

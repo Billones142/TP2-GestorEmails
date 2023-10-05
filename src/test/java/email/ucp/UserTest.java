@@ -34,7 +34,7 @@ public class UserTest {
     }
 
     @Test
-    public void addNewContactTest(){// TODO
+    public void addNewContactTest(){
         User user= new User("Stefano Merino", "stefanomerinoderui@gmail.com");
 
         user.addNewContact("juancito", "juancapo@hotmail.com");
