@@ -13,6 +13,8 @@ Proyecto presentado como Trabajo Práctico 2 en el Ciclo Lectivo 2023 para la ma
 **[Resutados de los test](https://billones142.github.io/TP2-GestorEmails/target/my-reports/index.html)**
 
 **[Code covered(codecov)](https://codecov.io/gh/Billones142/TP2-GestorEmails)**
+
+![Graph](https://codecov.io/gh/Billones142/TP2-GestorEmails/graphs/sunburst.svg?token=1134BUN664)
 ## Entregables
 
 1. Coloquio personal para presentar/defender el trabajo.
