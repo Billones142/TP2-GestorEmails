@@ -43,7 +43,7 @@ jobs:
       - name: Add Coverage Job Summary
         run: echo "${{ steps.jacoco_reporter.outputs.coverageSummary }}" >> $GITHUB_STEP_SUMMARY
 
-      - name: Badge Action
+      - name: create badge
         uses: emibcn/badge-action@v2.0.2
         with:
           label: 'Test coverage'
@@ -51,7 +51,7 @@ jobs:
           color: 'blue,555,daf'
           path: '.github/badges/coverage.svg'
 
-      - name: Generate badge
+      - name: upload badge
         uses: actions/upload-artifact@v3
         with:
           name: badge.svg
