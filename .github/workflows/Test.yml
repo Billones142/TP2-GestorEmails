@@ -75,8 +75,25 @@ jobs:
         run: |
           git config --global user.email "stefanomerinoderui@gmail.com"
           git config --global user.name "Billones142"
-
           
+          git checkout -- src/
+          rm -rf src
+          git add src/
+
+          git checkout -- .gitignore
+          rm .gitignore
+          git add .gitignore
+
+          git checkout -- openTest.bat
+          rm openTest.bat
+          git add openTest.bat
+
+          git checkout -- pom.xml
+          rm pom.xml
+          git add pom.xml
+
+          git checkout -- README.md
+          rm README.md
           
           git add target/my-reports/*
           git commit -m "Add generated files"
