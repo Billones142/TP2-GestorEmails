@@ -77,16 +77,6 @@ jobs:
             steps.coverage.outputs.coverage > 30 && 'red,red,orange'     ||
             steps.coverage.outputs.coverage > 20 && 'red,red,red,orange' ||
             'red' }}
-      - name: Commit badge
-        env:
-          BRANCH: ${{ steps.extract_branch.outputs.branch }}
-        run: |
-          pushd badges
-            git config --local user.email "action@github.com"
-            git config --local user.name "GitHub Action"
-            git add "${BRANCH}/badge.svg"
-            git commit -m "Add/Update badge"
-          popd
 
       - name: Upload coverage reports to Codecov
         uses: codecov/codecov-action@v3
