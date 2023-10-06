@@ -101,6 +101,11 @@ public class FilterTest {
         ArrayList<Mail> mailsFiltrados2= filtro.getFilteredMails_From(mailsFiltrados1, "juan@ucp.edu.ar");
         ArrayList<Mail> mailsFiltrados3= filtro.getFilteredMails_Date(mailsFiltrados2, "20 de diciembre");
 
+        //otra forma de acerlo
+        //ArrayList<Mail> mailsFiltrados= filtro.getFilteredMails_Date(
+        //filtro.getFilteredMails_From(
+        //filtro.getFilteredMails_FromUCP(mails), "juan@ucp.edu.ar"), "20 de diciembre");
+        
         assertEquals(12,mailsFiltrados3.size());
     }
 }

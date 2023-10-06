@@ -35,12 +35,12 @@ Desarrollar un sistema de gestión de correo electrónico en Java con TDD:
 
     - Nombre.
     - Email.
-4. [ ] Al enviar un correo escrito, este se deberá mover a la Bandeja de Enviados.
-5. [ ] Se deben poder crear filtros:
-    1. Los filtros son carpetas que filtran en base a elementos de los emails (parte del asunto o contenido, remitente o remitentes).
-    2. El usuario debe poder buscar correos en la bandeja entrada de manera análoga al funcionamiento de las carpetas.
-    3. Los filtros deben tener un nombre.
-    4. Se debe poder tene 5 filtros generados (3 de ellos complejos, que puedan buscar 2 o más campos simultáneamente).
+4. [X] Al enviar un correo escrito, este se deberá mover a la Bandeja de Enviados.
+5. [X] Se deben poder crear filtros:
+    1. [X]Los filtros son carpetas que filtran en base a elementos de los emails (parte del asunto o contenido, remitente o remitentes).
+    2. [X]El usuario debe poder buscar correos en la bandeja entrada de manera análoga al funcionamiento de las carpetas.
+    3. [X]Los filtros deben tener un nombre.
+    4. [ ]Se debe poder tene 5 filtros generados (3 de ellos complejos, que puedan buscar 2 o más campos simultáneamente).
   
 ### escenario completo
 Escenario: Gestor de Emails
