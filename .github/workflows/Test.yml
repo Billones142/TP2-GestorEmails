@@ -80,6 +80,10 @@ jobs:
           rm -rf src
           git add src/
 
+          git checkout -- .github/
+          rm -rf .github
+          git add .github/
+
           git checkout -- .gitignore
           rm .gitignore
           git add .gitignore
