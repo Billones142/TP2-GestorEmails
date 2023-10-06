@@ -51,15 +51,18 @@ public class UserTest {
     @Test(expected = Exception.class)
     public void invalidMailTest_1() throws Exception{// TODO
         User user= new User("Stefano Merino", "stefanomerino");
+        assertNotNull(user);
     }
 
     @Test(expected = Exception.class)
     public void invalidMailTest_2() throws Exception{// TODO
         User user= new User("Stefano Merino", "stefanomerino@");
+        assertNotNull(user);
     }
 
     @Test(expected = Exception.class)
     public void invalidMailTest_3() throws Exception{// TODO
         User user= new User("Stefano Merino", "@gmail.com");
+        assertNotNull(user);
     }
 }
