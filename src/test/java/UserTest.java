@@ -1,8 +1,11 @@
-package email.ucp;
-
 import static org.junit.Assert.*;
 
 import org.junit.Test;
+
+import email.ucp.Contact;
+
+import email.ucp.Mail;
+import email.ucp.User;
 
 import java.util.ArrayList;
 
@@ -19,18 +22,19 @@ public class UserTest {
     }
 
     @Test
-    public void createEmailTest(){
+    public void createEmailTest() throws Exception{
         User usuario= new User("Stefano Merino","stefanomerinoderui@gmail.com");
 
         ArrayList<String> to= new ArrayList<String>();
         to.add("alumnado@ucp.edu.ar");
 
-        Mail mail= usuario.createNewEmail("Test", "Hello World", to);
+        Mail mail= usuario.createNewEmail("Test", "Hello World", to, "10 de agosto");
 
         assertEquals(usuario.getDirection(), mail.getFrom());
         assertEquals("Test", mail.getSubject());
         assertEquals("Hello World", mail.getContent());
         assertEquals(to.get(0), mail.getTo().get(0));
+        assertEquals("10 de agosto", mail.getDate());
     }
 
     @Test

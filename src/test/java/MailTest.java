@@ -1,16 +1,16 @@
-package email.ucp;
-
 import static org.junit.Assert.*;
 
 import java.util.ArrayList;
 
 import org.junit.Test;
 
+import email.ucp.Mail;
+
 
 public class MailTest {
     @Test
-    public void mailNotNullTest(){
-        Mail mail= new Mail("stefanomerinoderui@gmail.com");
+    public void mailNotNullTest() throws Exception{
+        Mail mail= new Mail("stefanomerinoderui@gmail.com","10 de agosto");
 
         mail.setSubject("Test");
         mail.setContent("Hello World");
@@ -25,8 +25,8 @@ public class MailTest {
     }
 
     @Test
-    public void addToTest(){
-        Mail mail= new Mail("stefanomerinoderui@gmail.com");
+    public void addToTest() throws Exception{
+        Mail mail= new Mail("stefanomerinoderui@gmail.com","10 de agosto");
 
         mail.setSubject("Test");
         mail.setContent("Hello World");

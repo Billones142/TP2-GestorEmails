@@ -39,8 +39,8 @@ public class User {
         contacts.add(new Contact(name, direction));
     }
 
-    public Mail createNewEmail(String subject, String content, ArrayList<String> toEmail){
-        Mail mail = new Mail(getDirection());
+    public Mail createNewEmail(String subject, String content, ArrayList<String> toEmail, String date) throws Exception{
+        Mail mail = new Mail(getDirection(), date);
         mail.setTo(toEmail);
         mail.setSubject(subject);
         mail.setContent(content);

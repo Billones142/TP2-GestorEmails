@@ -42,8 +42,8 @@ public class Dealer {
         return -1;
     }
 
-    public void sendMail(User from, ArrayList<String> to, String subject, String content){
-        Mail newMail= from.createNewEmail(subject, content, to);
+    public void sendMail(User from, ArrayList<String> to, String subject, String content, String date) throws Exception{
+        Mail newMail= from.createNewEmail(subject, content, to, date);
         
         for (int i = 0; i < to.size(); i++) { //agrega el nuevo mail a todos los destinatarios
             int userIndex= searchUser(to.get(i));

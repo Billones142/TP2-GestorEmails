@@ -3,16 +3,20 @@ package email.ucp;
 import java.util.ArrayList;
 
 public class Mail {
-    public Mail(String fromMail) {
+    public Mail(String fromMail, String date) throws Exception{
         super();
+        if(!emailAddressIsValid(fromMail)){
+            throw new Exception("Email address invalid");
+        }
         setFrom(fromMail);
-        // TODO: verificar que el todo sea válido
+        setDate(date);
     }
 
-    private String from= new String();
+    private String from;
     private ArrayList<String> to= new ArrayList<String>();
-    private String subject= new String();
-    private String content= new String();
+    private String subject;
+    private String content;
+    private String date;
 
 
     //           INICIO ENCAPSULACION           //
@@ -47,7 +51,30 @@ public class Mail {
     public String getSubject() {
         return subject;
     }
+
+    public void setDate(String date) {
+        this.date = date;
+    }
+
+    public String getDate() {
+        return date;
+    }
     //           FIN ENCAPSULACION           //
+
+    public boolean emailAddressIsValid(String address){ //TODO
+        if(!address.trim().contains("@")){
+            return false;
+        }
+        String addressName= address.split("@")[0];
+        String addressProvider= address.split("@")[1];
+        if(addressName.length() <= 0){
+            return false;
+        }
+        if(addressProvider.length() <= 0){
+            return false;
+        }
+        return true;
+    }
 
     public void addNewTo(String email){
         getTo().add(email);
