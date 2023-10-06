@@ -61,6 +61,23 @@ public class FilterTest {
 
         assertEquals(13,mailsFiltrados.size());
     }
+
+    @Test
+    public void datePredicateTest() throws Exception{// TODO
+        ArrayList<Mail> mails= new ArrayList<Mail>();
+        Filter filtro= new Filter();
+
+        for (int i = 0; i < 13; i++) {
+            mails.add(i, new Mail("juan@gmail.com","10 de agosto"));
+        }
+        for (int i = 0; i < 8; i++) {
+            mails.add(i, new Mail("stefanomerinoderui@gmail.com", "17 de diciembre"));
+        }
+
+        ArrayList<Mail> mailsFiltrados= filtro.getFilteredMails_Date(mails, "17 de diciembre");
+
+        assertEquals(8,mailsFiltrados.size());
+    }
     
     @Test
     public void FiltroComplejoTest() throws Exception{// TODO
@@ -68,17 +85,22 @@ public class FilterTest {
         Filter filtro= new Filter();
 
         for (int i = 0; i < 13; i++) {
-            mails.add(i, new Mail("juan@gmail.com", "10 de agosto"));
+            mails.add(i, new Mail("stiven@gmail.com", "8 de septiembre"));
         }
         for (int i = 0; i < 12; i++) {
-            mails.add(i, new Mail("juan1@gmail.com", "10 de agosto"));
+            mails.add(i, new Mail("juan@ucp.edu.ar", "20 de diciembre"));
         }
         for (int i = 0; i < 8; i++) {
-            mails.add(i, new Mail("stefanomerinoderui@gmail.com", "10 de agosto"));
+            mails.add(i, new Mail("stefanomerinoderui@gmail.com", "24 de enero"));
+        }
+        for (int i = 0; i < 10; i++) {
+            mails.add(i, new Mail("pedro@ucp.edu.ar", "2 de octubre"));
         }
 
-        ArrayList<Mail> mailsFiltrados= filtro.getFilteredMails_From(mails, "juan@gmail.com");
+        ArrayList<Mail> mailsFiltrados1= filtro.getFilteredMails_FromUCP(mails);
+        ArrayList<Mail> mailsFiltrados2= filtro.getFilteredMails_From(mailsFiltrados1, "juan@ucp.edu.ar");
+        ArrayList<Mail> mailsFiltrados3= filtro.getFilteredMails_Date(mailsFiltrados2, "20 de diciembre");
 
-        assertEquals(13,mailsFiltrados.size());
+        assertEquals(12,mailsFiltrados3.size());
     }
 }
