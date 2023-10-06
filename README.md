@@ -23,24 +23,36 @@ Proyecto presentado como Trabajo Práctico 2 en el Ciclo Lectivo 2023 para la ma
 4. Ejecución automática de tests mediante CI (integración continua) mediante Github Actions.
 
 ## Consigna
+**[Documento sobre el trabajo](https://docs.google.com/document/d/1IlVuJXbe-L9Nft5AmJ_FEfidUGkMvDkb8_xRpqAWgwg/edit#heading=h.la8oy7pbxqvv)**
 
 Desarrollar un sistema de gestión de correo electrónico en Java con TDD:
 
-1. [X] El usuario podrá crear un correo electrónico con:
+1. [x] El usuario podrá crear un correo electrónico con:
     - Asunto.
     - Contenido.
     - Remitente.
     - Para (se debe poder enviar a múltiples contactos).
-3. [X] Un Contacto es un objeto con:
+3. [x] Un Contacto es un objeto con:
 
     - Nombre.
     - Email.
-4. [X] Al enviar un correo escrito, este se deberá mover a la Bandeja de Enviados.
-5. [X] Se deben poder crear filtros:
-    1. [X]Los filtros son carpetas que filtran en base a elementos de los emails (parte del asunto o contenido, remitente o remitentes).
-    2. [X]El usuario debe poder buscar correos en la bandeja entrada de manera análoga al funcionamiento de las carpetas.
-    3. [X]Los filtros deben tener un nombre.
-    4. [ ]Se debe poder tene 5 filtros generados (3 de ellos complejos, que puedan buscar 2 o más campos simultáneamente).
+4. [x] Al enviar un correo escrito, este se deberá mover a la Bandeja de Enviados.
+5. [ ] Se deben poder crear filtros:
+    1. [x] Los filtros son carpetas que filtran en base a elementos de los emails (parte del asunto o contenido, remitente o remitentes).
+    2. [x] El usuario debe poder buscar correos en la bandeja entrada de manera análoga al funcionamiento de las carpetas.
+    3. [x] Los filtros deben tener un nombre.
+    4. [ ] Se debe poder tene 5 filtros generados (3 de ellos complejos, que puedan buscar 2 o más campos simultáneamente).
+  
+Otros:
+
+- [x] Aplicación de elementos, artefactos y principios del paradigma orientado a objetos
+- [x] Aplicación de elementos,  artefactos y principios del paradigma funcional (en la parte de filtros)
+- [x] Realización de flujo de trabajo en GitHub . Repositorio personal
+- [ ] Implementación o refactoring de aplicación de principios SOLID
+- [x] Implementación de CI en repositorio personal (ejecución de los test)
+- [x] Programación basada en test (TDD)
+- [x] Cobertura de código más del 90%
+
   
 ### escenario completo
 Escenario: Gestor de Emails
