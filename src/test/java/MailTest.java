@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import org.junit.Test;
 
 import email.ucp.Mail;
+import email.ucp.User;
 
 
 public class MailTest {
@@ -40,5 +41,23 @@ public class MailTest {
 
         assertEquals("juan@ucp.edu.ar", mail.getTo().get(0));
         assertEquals("stiven@ucp.edu.ar", mail.getTo().get(1));
+    }
+
+    @Test(expected = Exception.class)
+    public void invalidMailTest_1() throws Exception{// TODO
+        Mail mail= new Mail("stefanomerino.gmail.com", "2 de enero");
+        assertNotNull(mail);
+    }
+
+    @Test(expected = Exception.class)
+    public void invalidMailTest_2() throws Exception{// TODO
+        Mail mail= new Mail("stefanomerino@", "2 de enero");
+        assertNotNull(mail);
+    }
+
+    @Test(expected = Exception.class)
+    public void invalidMailTest_3() throws Exception{// TODO
+        Mail mail= new Mail("@gmail.com", "2 de enero");
+        assertNotNull(mail);
     }
 }
