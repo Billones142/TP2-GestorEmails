@@ -1,6 +1,7 @@
 package email.ucp;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 
 public class Mail {
     public Mail(String fromMail, String date) throws Exception{
@@ -61,19 +62,21 @@ public class Mail {
     }
     //           FIN ENCAPSULACION           //
 
-    public boolean emailAddressIsValid(String address){ //TODO
+    public boolean emailAddressIsValid(String address){
+        boolean returnValue= true;
         if(!address.trim().contains("@")){
-            return false;
+            returnValue= false;
         }
-        String addressName= address.split("@")[0];
-        String addressProvider= address.split("@")[1];
-        if(addressName.length() <= 0){
-            return false;
+        ArrayList<String> division= new ArrayList<>(Arrays.asList(address.split("@")));
+        if(division.size() != 2){
+            returnValue= false;
+        }else for (String string : division) {
+            if(string.length() <= 0){
+                returnValue= false;
+            }
         }
-        if(addressProvider.length() <= 0){
-            return false;
-        }
-        return true;
+        
+        return returnValue;
     }
 
     public void addNewTo(String email){

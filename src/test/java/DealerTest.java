@@ -31,4 +31,13 @@ public class DealerTest {
         dealer.getUser("stiven@gmail.com").mails.get(0);
         assertEquals(dealer.getUser("stefanomerinoderui@gmail.com").mails.get(0),dealer.getUser("stiven@gmail.com").mails.get(0));
     }
+
+    @Test(expected = Exception.class)
+    public void searhNullUserTest() throws Exception{// TODO
+        Dealer dealer= new Dealer();
+
+        dealer.setNewUser("Stefano Merino", "stefanomerinoderui@gmail.com");
+
+        assertEquals(-1, dealer.getUser("stiven@gmail.com"));
+    }
 }

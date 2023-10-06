@@ -22,7 +22,7 @@ public class UserTest {
     }
 
     @Test
-    public void createEmailTest() throws Exception{
+    public void createEmailTest_1() throws Exception{
         User usuario= new User("Stefano Merino","stefanomerinoderui@gmail.com");
 
         ArrayList<String> to= new ArrayList<String>();
@@ -35,6 +35,21 @@ public class UserTest {
         assertEquals("Hello World", mail.getContent());
         assertEquals(to.get(0), mail.getTo().get(0));
         assertEquals("10 de agosto", mail.getDate());
+    }
+
+    @Test
+    public void createEmailTest_2() throws Exception{
+        User usuario= new User("Stefano Merino","stefanomerinoderui@gmail.com");
+
+        usuario.addNewContact("Stiven", "stiven@gmail.com");
+
+        Mail mail= usuario.createNewEmail("Test Mail", "Hello World", "9 de julio", usuario.contacts.get(0));
+
+        assertEquals(usuario.getDirection(), mail.getFrom());
+        assertEquals("Test Mail", mail.getSubject());
+        assertEquals("Hello World", mail.getContent());
+        assertEquals("stiven@gmail.com", mail.getTo().get(0));
+        assertEquals("9 de julio", mail.getDate());
     }
 
     @Test
