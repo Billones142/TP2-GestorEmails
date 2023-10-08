@@ -11,12 +11,18 @@ import email.ucp.User;
 
 public class DealerTest {
     @Test
-    public void createUserTest(){// TODO
-        assertEquals(true, true);
+    public void createUserTest() throws Exception{
+        Dealer dealer= new Dealer();
+
+        dealer.setNewUser("Stefano Merino", "stefanomerinoderui@gmail.com");
+
+        assertNotEquals(-1, dealer.getUser("stefanomerinoderui@gmail.com"));
+        assertEquals("Stefano Merino", dealer.getUser(0).getFullName());
+        assertEquals("stefanomerinoderui@gmail.com", dealer.getUser(0).getEmailAddress());
     }
 
     @Test
-    public void sendEmailTest() throws Exception{// TODO
+    public void sendEmailTest() throws Exception{
         Dealer dealer= new Dealer();
 
         dealer.setNewUser("Stefano Merino", "stefanomerinoderui@gmail.com");
@@ -34,7 +40,7 @@ public class DealerTest {
     }
 
     @Test
-    public void filterFromDealerTest() throws Exception{// TODO
+    public void filterFromDealerTest() throws Exception{
         Dealer dealer= new Dealer();
 
         dealer.setNewUser("Stefano Merino", "stefanomerinoderui@gmail.com");
@@ -63,7 +69,7 @@ public class DealerTest {
     }
 
     @Test(expected = Exception.class)
-    public void searhNullUserTest() throws Exception{// TODO
+    public void searhNullUserTest() throws Exception{
         Dealer dealer= new Dealer();
 
         dealer.setNewUser("Stefano Merino", "stefanomerinoderui@gmail.com");

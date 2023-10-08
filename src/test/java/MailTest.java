@@ -43,19 +43,19 @@ public class MailTest {
     }
 
     @Test(expected = Exception.class)
-    public void invalidMailTest_1() throws Exception{// TODO
+    public void invalidMailTest_1() throws Exception{
         Mail mail= new Mail("stefanomerino.gmail.com", "2 de enero");
         assertNotNull(mail);
     }
 
     @Test(expected = Exception.class)
-    public void invalidMailTest_2() throws Exception{// TODO
+    public void invalidMailTest_2() throws Exception{
         Mail mail= new Mail("stefanomerino@", "2 de enero");
         assertNotNull(mail);
     }
 
     @Test(expected = Exception.class)
-    public void invalidMailTest_3() throws Exception{// TODO
+    public void invalidMailTest_3() throws Exception{
         Mail mail= new Mail("@gmail.com", "2 de enero");
         assertNotNull(mail);
     }

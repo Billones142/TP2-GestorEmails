@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
 
-// TODO
 
 public class Filter{
     public Filter(User user) {
@@ -119,7 +118,7 @@ public class Filter{
     }
     //*******************FIN MAILS FILTRADOS*******************\\
 
-    public ArrayList<Mail> to_EmailList(){ //TODO
+    public ArrayList<Mail> to_EmailList(){
         return getUserMails();
     }
 }

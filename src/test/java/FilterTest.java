@@ -27,7 +27,7 @@ public class FilterTest {
     }
 
     @Test
-    public void isFromUcpPredicateTest() throws Exception{// TODO
+    public void isFromUcpPredicateTest() throws Exception{
         User usuario= new User("Stefano Merino", "stefanomerinoderui@gmail.com");
         Filter filtro= new Filter(usuario);
 
@@ -44,7 +44,7 @@ public class FilterTest {
     }
 
     @Test
-    public void isFromPredicateTest() throws Exception{// TODO
+    public void isFromPredicateTest() throws Exception{
         User usuario= new User("Stefano Merino", "stefanomerinoderui@gmail.com");
         Filter filtro= new Filter(usuario);
 
@@ -64,7 +64,7 @@ public class FilterTest {
     }
 
     @Test
-    public void datePredicateTest() throws Exception{// TODO
+    public void datePredicateTest() throws Exception{
         User usuario= new User("Stefano Merino", "stefanomerinoderui@gmail.com");
         Filter filtro= new Filter(usuario);
 
@@ -81,7 +81,7 @@ public class FilterTest {
     }
     
     @Test
-    public void FiltroComplejoTest() throws Exception{// TODO
+    public void FiltroComplejoTest() throws Exception{
         User usuario= new User("Stefano Merino", "stefanomerinoderui@gmail.com");
         Filter filtro= new Filter(usuario);
 
