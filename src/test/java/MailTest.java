@@ -16,12 +16,12 @@ public class MailTest {
         mail.setContent("Hello World");
         ArrayList<String> to= new ArrayList<String>();
         to.add("juan@ucp.edu.ar");
-        mail.setTo(to);
+        mail.setToAddresses(to);
 
         assertEquals("stefanomerinoderui@gmail.com", mail.getFrom());
         assertEquals("Test", mail.getSubject());
         assertEquals("Hello World", mail.getContent());
-        assertEquals("juan@ucp.edu.ar", mail.getTo().get(0));
+        assertEquals("juan@ucp.edu.ar", mail.getToAddresses().get(0));
     }
 
     @Test
@@ -32,14 +32,14 @@ public class MailTest {
         mail.setContent("Hello World");
         ArrayList<String> to= new ArrayList<String>();
         to.add("juan@ucp.edu.ar");
-        mail.setTo(to);
+        mail.setToAddresses(to);
 
-        assertEquals("juan@ucp.edu.ar", mail.getTo().get(0));
+        assertEquals("juan@ucp.edu.ar", mail.getToAddresses().get(0));
 
-        mail.addNewTo("stiven@ucp.edu.ar");
+        mail.addNewToAddress("stiven@ucp.edu.ar");
 
-        assertEquals("juan@ucp.edu.ar", mail.getTo().get(0));
-        assertEquals("stiven@ucp.edu.ar", mail.getTo().get(1));
+        assertEquals("juan@ucp.edu.ar", mail.getToAddresses().get(0));
+        assertEquals("stiven@ucp.edu.ar", mail.getToAddresses().get(1));
     }
 
     @Test(expected = Exception.class)

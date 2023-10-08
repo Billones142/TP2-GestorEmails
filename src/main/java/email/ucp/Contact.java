@@ -1,30 +1,32 @@
 package email.ucp;
 
-public class Contact {
+import email.ucp.interfaces.IgetDetails;
+
+public class Contact implements IgetDetails{
     public Contact(String name, String mail) {
         super();
-        setName(name);
-        setMailAddress(mail);
+        setFullName(name);
+        setEmailAddress(mail);
     }
 
-    String name;
-    String mailAddress;
+    String fullName;
+    String emailAddress;
 
     //           INICIO ENCAPSULACION           //
-    public void setName(String name) {
-        this.name = name;
+    public void setFullName(String name) {
+        this.fullName = name;
     }
 
-    public String getName() {
-        return name;
+    public String getFullName() {
+        return fullName;
     }
 
-    public void setMailAddress(String mail) {
-        this.mailAddress = mail;
+    public void setEmailAddress(String mail) {
+        this.emailAddress = mail;
     }
 
-    public String getMailAddress() {
-        return mailAddress;
+    public String getEmailAddress() {
+        return emailAddress;
     }
     //           FIN ENCAPSULACION           //
 }

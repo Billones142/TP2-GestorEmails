@@ -33,7 +33,7 @@ public class UserTest {
         assertEquals(usuario.getEmailAddress(), mail.getFrom());
         assertEquals("Test", mail.getSubject());
         assertEquals("Hello World", mail.getContent());
-        assertEquals(to.get(0), mail.getTo().get(0));
+        assertEquals(to.get(0), mail.getToAddresses().get(0));
         assertEquals("10 de agosto", mail.getDate());
     }
 
@@ -48,7 +48,7 @@ public class UserTest {
         assertEquals(usuario.getEmailAddress(), mail.getFrom());
         assertEquals("Test Mail", mail.getSubject());
         assertEquals("Hello World", mail.getContent());
-        assertEquals("stiven@gmail.com", mail.getTo().get(0));
+        assertEquals("stiven@gmail.com", mail.getToAddresses().get(0));
         assertEquals("9 de julio", mail.getDate());
     }
 
@@ -59,8 +59,8 @@ public class UserTest {
         user.addNewContact("juancito", "juancapo@hotmail.com");
 
         Contact contact= user.contacts.get(0);
-        assertEquals("juancito", contact.getName());
-        assertEquals("juancapo@hotmail.com", contact.getMailAddress());
+        assertEquals("juancito", contact.getFullName());
+        assertEquals("juancapo@hotmail.com", contact.getEmailAddress());
     }
 
     @Test(expected = Exception.class)

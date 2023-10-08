@@ -31,7 +31,7 @@ public class DealerTest {
         dealer.getUser("stefanomerinoderui@gmail.com").addNewContact("stiven", "stiven@gmail.com");
 
         ArrayList<String> toAddress= new ArrayList<String>();
-        toAddress.add(dealer.getUser("stefanomerinoderui@gmail.com").contacts.get(0).getMailAddress());
+        toAddress.add(dealer.getUser("stefanomerinoderui@gmail.com").contacts.get(0).getEmailAddress());
 
         dealer.sendMail(dealer.getUser("stefanomerinoderui@gmail.com"), toAddress, "Test", "Hello World", "18 de julio");
 

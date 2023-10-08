@@ -13,8 +13,8 @@ public class Mail {
         setDate(date);
     }
 
-    private String from;
-    private ArrayList<String> to= new ArrayList<String>();
+    private String from;    
+    private ArrayList<String> toAddresses= new ArrayList<String>();
     private String subject;
     private String content;
     private String date;
@@ -29,12 +29,12 @@ public class Mail {
         from= direction;
     }
 
-    public void setTo(ArrayList<String> to) {
-        this.to = to;
+    public void setToAddresses(ArrayList<String> to) {
+        this.toAddresses = to;
     }
 
-    public ArrayList<String> getTo() {
-        return to;
+    public ArrayList<String> getToAddresses() {
+        return toAddresses;
     }
 
     public void setContent(String content) {
@@ -79,7 +79,7 @@ public class Mail {
         return returnValue;
     }
 
-    public void addNewTo(String email){
-        getTo().add(email);
+    public void addNewToAddress(String email){  
+        getToAddresses().add(email);
     }
 }

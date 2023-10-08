@@ -3,7 +3,9 @@ package email.ucp;
 import java.util.ArrayList;
 import java.util.Arrays;
 
-public class User {
+import email.ucp.interfaces.IgetDetails;
+
+public class User implements IgetDetails{
     public User(String newFullName, String address) throws Exception{
         super();
         if(!emailAddressIsValid(address)){
@@ -62,7 +64,7 @@ public class User {
 
     public Mail createNewEmail(String subject, String content, String date, ArrayList<String> toEmail) throws Exception{
         Mail mail = new Mail(getEmailAddress(), date);
-        mail.setTo(toEmail);
+        mail.setToAddresses(toEmail);
         mail.setSubject(subject);
         mail.setContent(content);
 
@@ -73,7 +75,7 @@ public class User {
 
     public Mail createNewEmail(String subject, String content, String date, Contact contact) throws Exception{
         ArrayList<String> toEmail= new ArrayList<String>();
-        toEmail.add(contact.getMailAddress());
+        toEmail.add(contact.getEmailAddress());
 
         return createNewEmail(subject, content, date, toEmail);
     }
