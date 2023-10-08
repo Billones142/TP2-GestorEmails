@@ -14,16 +14,16 @@ public class Dealer {
         return users;
     }
 
-    public User getUser(int index) {
+    public User getUserIndex(int index) {
         return users.get(index);
     }
 
-    public User getUser(String address) throws Exception{
+    public User getUserIndex(String address) throws Exception{
         int userIndex= searchUser(address);
         if(userIndex == -1){
             throw new Exception("El usuario no existe");
         }
-        return getUser(userIndex);
+        return getUserIndex(userIndex);
     }
 
     private void setUser(User user) {
@@ -45,7 +45,7 @@ public class Dealer {
      */
     private int searchUser(String address){
         for (int i = 0; i < getUsers().size(); i++) {
-            if(getUser(i).getEmailAddress() == address){
+            if(getUserIndex(i).getEmailAddress() == address){
                 return i;
             }
         }
@@ -57,7 +57,7 @@ public class Dealer {
         
         //agregar el nuevo mail a todos los destinatarios
         for (String address : to) {
-            getUser(searchUser(address)).mails.add(newMail);;
+            getUserIndex(searchUser(address)).mails.add(newMail);;
         }
     }
 
