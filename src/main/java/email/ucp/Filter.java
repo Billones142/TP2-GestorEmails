@@ -93,13 +93,13 @@ public class Filter{
         return new Filter(functionDirection, filteredMails);
     }
 
-    public Filter getEmails_From(String fromMail){
+    public Filter getEmails_From(String address){
         ArrayList<Mail> mails= getUserMails();
         String functionDirection= getUserAddress();
         ArrayList<Mail> filteredMails;
 
         filteredMails= mails.stream()
-        .filter(getFromPredicate(fromMail))
+        .filter(getFromPredicate(address))
         .collect(Collectors.toCollection(ArrayList::new));
 
         return new Filter(functionDirection, filteredMails);
