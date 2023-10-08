@@ -21,7 +21,7 @@ public class FilterTest {
             usuario.mails.add(i, new Mail("stefanomerinoderui@gmail.com","10 de agosto"));
         }
 
-        ArrayList<Mail> mailsFiltrados= filtro.get_Send();
+        ArrayList<Mail> mailsFiltrados= filtro.getEmails_Send().to_EmailList();
 
         assertEquals(8,mailsFiltrados.size());
     }
@@ -38,7 +38,7 @@ public class FilterTest {
             usuario.mails.add(i, new Mail("stefanomerinoderui@gmail.com","10 de agosto"));
         }
 
-        ArrayList<Mail> mailsFiltrados= filtro.get_FromUCP(mails);
+        ArrayList<Mail> mailsFiltrados= filtro.getEmails_FromUCP().to_EmailList();
 
         assertEquals(3,mailsFiltrados.size());
     }
@@ -58,7 +58,7 @@ public class FilterTest {
             usuario.mails.add(i, new Mail("stefanomerinoderui@gmail.com", "10 de agosto"));
         }
 
-        ArrayList<Mail> mailsFiltrados= filtro.get_From(mails, "juan@gmail.com");
+        ArrayList<Mail> mailsFiltrados= filtro.getEmails_From("juan@gmail.com").to_EmailList();
 
         assertEquals(13,mailsFiltrados.size());
     }
@@ -75,7 +75,7 @@ public class FilterTest {
             usuario.mails.add(i, new Mail("stefanomerinoderui@gmail.com", "17 de diciembre"));
         }
 
-        ArrayList<Mail> mailsFiltrados= filtro.get_FromDate(mails, "17 de diciembre");
+        ArrayList<Mail> mailsFiltrados= filtro.getEmails_FromDate("17 de diciembre").to_EmailList();
 
         assertEquals(8,mailsFiltrados.size());
     }
@@ -98,15 +98,12 @@ public class FilterTest {
             usuario.mails.add(i, new Mail("pedro@ucp.edu.ar", "2 de octubre"));
         }
 
-        ArrayList<Mail> mailsFiltrados1= filtro.getFilteredMails_FromUCP();
-        ArrayList<Mail> mailsFiltrados2= filtro.get_From(mailsFiltrados1, "juan@ucp.edu.ar");
-        ArrayList<Mail> mailsFiltrados3= filtro.get_FromDate(mailsFiltrados2, "20 de diciembre");
+        ArrayList<Mail> mailsFiltrados= filtro
+        .getEmails_FromUCP()
+        .getEmails_From("juan@ucp.edu.ar")
+        .getEmails_FromDate("20 de diciembre").to_EmailList();
 
-        //otra forma de acerlo
-        //ArrayList<Mail> mailsFiltrados= filtro.getFilteredMails_Date(
-        //filtro.getFilteredMails_From(
-        //filtro.getFilteredMails_FromUCP(mails), "juan@ucp.edu.ar"), "20 de diciembre");
         
-        assertEquals(12,mailsFiltrados3.size());
+        assertEquals(12,mailsFiltrados.size());
     }
 }

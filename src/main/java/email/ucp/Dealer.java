@@ -60,4 +60,8 @@ public class Dealer {
             getUser(searchUser(address)).mails.add(newMail);;
         }
     }
+
+    public Filter filter(User user){
+        return new Filter(user);
+    }
 }

@@ -10,10 +10,16 @@ public class Filter{
     public Filter(User user) {
         super();
         setUserAddress(user.getEmailAddress());
-        setMails(user.mails);
+        setUserMails(user.mails);
     }
 
-    private ArrayList<Mail> mails;
+    private Filter(String filterAddress, ArrayList<Mail> filterMails) { //constructor para las funciones de filter
+        super();
+        setUserAddress(filterAddress);
+        setUserMails(filterMails);
+    }
+
+    private ArrayList<Mail> userMails;
     private String userAddress;
 
     private void setUserAddress(String userAddress) {
@@ -24,12 +30,12 @@ public class Filter{
         return userAddress;
     }
 
-    public ArrayList<Mail> getMails() {
-        return mails;
+    public ArrayList<Mail> getUserMails() {
+        return userMails;
     }
 
-    private void setMails(ArrayList<Mail> mails) {
-        this.mails = mails;
+    private void setUserMails(ArrayList<Mail> mails) {
+        this.userMails = mails;
     }
 
 
@@ -62,20 +68,22 @@ public class Filter{
 
     //*******************COMIENZO MAILS FILTRADOS*******************\\
 
-    public void get_Send(){
-        ArrayList<Mail> mails= getMails();
-        String propietaryDirection= getUserAddress();
+    public Filter getEmails_Send(){
+        ArrayList<Mail> mails= getUserMails();
+        String functionDirection= getUserAddress();
         ArrayList<Mail> filteredMails;
 
         
         filteredMails= mails.stream()
-        .filter(send(propietaryDirection))
+        .filter(send(functionDirection))
         .collect(Collectors.toCollection(ArrayList::new));
 
-        setMails(filteredMails);
+        return new Filter(functionDirection, filteredMails);
     }
 
-    public void get_FromUCP(ArrayList<Mail> mails){
+    public Filter getEmails_FromUCP(){
+        ArrayList<Mail> mails= getUserMails();
+        String functionDirection= getUserAddress();
         ArrayList<Mail> filteredMails;
 
         
@@ -83,31 +91,35 @@ public class Filter{
         .filter(getFromUCPPredicate())
         .collect(Collectors.toCollection(ArrayList::new));
 
-        setMails(filteredMails);
+        return new Filter(functionDirection, filteredMails);
     }
 
-    public void get_From(ArrayList<Mail> mails, String fromMail){
+    public Filter getEmails_From(String fromMail){
+        ArrayList<Mail> mails= getUserMails();
+        String functionDirection= getUserAddress();
         ArrayList<Mail> filteredMails;
 
         filteredMails= mails.stream()
         .filter(getFromPredicate(fromMail))
         .collect(Collectors.toCollection(ArrayList::new));
 
-        setMails(filteredMails);
+        return new Filter(functionDirection, filteredMails);
     }
 
-    public void get_FromDate(ArrayList<Mail> mails, String date){
+    public Filter getEmails_FromDate(String date){
+        ArrayList<Mail> mails= getUserMails();
+        String functionDirection= getUserAddress();
         ArrayList<Mail> filteredMails;
 
         filteredMails= mails.stream()
         .filter(getFromUCPPredicate(date))
         .collect(Collectors.toCollection(ArrayList::new));
 
-        setMails(filteredMails);
+        return new Filter(functionDirection, filteredMails);
     }
     //*******************FIN MAILS FILTRADOS*******************\\
 
-    public Arraylist<Mail> toEmailList(){ //TODO
-        return getMails();
+    public ArrayList<Mail> to_EmailList(){ //TODO
+        return getUserMails();
     }
 }
