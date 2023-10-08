@@ -19,8 +19,9 @@ Proyecto presentado como Trabajo Práctico 2 en el Ciclo Lectivo 2023 para la ma
 
 1. Coloquio personal para presentar/defender el trabajo.
 2. Presentación del documento descriptivo con diagrama de completo de clases utilizadas.
-3. Enlace a repositorio.
-4. Ejecución automática de tests mediante CI (integración continua) mediante Github Actions.
+   ![Diagrama UML](https://raw.githubusercontent.com/Billones142/TP2-GestorEmails/main/DiagramaUML.svg)
+4. Enlace a repositorio.
+5. Ejecución automática de tests mediante CI (integración continua) mediante Github Actions.
 
 ## Consigna
 **[Documento sobre el trabajo](https://docs.google.com/document/d/1IlVuJXbe-L9Nft5AmJ_FEfidUGkMvDkb8_xRpqAWgwg/edit#heading=h.la8oy7pbxqvv)**
