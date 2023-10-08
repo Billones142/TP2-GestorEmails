@@ -5,7 +5,6 @@ import java.util.ArrayList;
 import org.junit.Test;
 
 import email.ucp.Dealer;
-import email.ucp.User;
 
 
 public class DealerTest {
@@ -24,7 +23,7 @@ public class DealerTest {
         dealer.getUser("stefanomerinoderui@gmail.com").addNewContact("stiven", "stiven@gmail.com");
 
         ArrayList<String> toAddress= new ArrayList<String>();
-        toAddress.add(dealer.getUser("stefanomerinoderui@gmail.com").contacts.get(0).getMail());
+        toAddress.add(dealer.getUser("stefanomerinoderui@gmail.com").contacts.get(0).getMailAddress());
 
         dealer.sendMail(dealer.getUser("stefanomerinoderui@gmail.com"), toAddress, "Test", "Hello World", "18 de julio");
 

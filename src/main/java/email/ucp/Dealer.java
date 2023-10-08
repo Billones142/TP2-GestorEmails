@@ -45,7 +45,7 @@ public class Dealer {
      */
     private int searchUser(String address){
         for (int i = 0; i < getUsers().size(); i++) {
-            if(getUser(i).getDirection() == address){
+            if(getUser(i).getEmailAddress() == address){
                 return i;
             }
         }

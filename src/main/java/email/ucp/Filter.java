@@ -4,9 +4,34 @@ import java.util.ArrayList;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
 
-// TODO: hacer que las funciones solo requieran que les pases el usuario
+// TODO
 
-public class Filter {
+public class Filter{
+    public Filter(User user) {
+        super();
+        setUserAddress(user.getEmailAddress());
+        setMails(user.mails);
+    }
+
+    private ArrayList<Mail> mails;
+    private String userAddress;
+
+    private void setUserAddress(String userAddress) {
+        this.userAddress = userAddress;
+    }
+
+    public String getUserAddress() {
+        return userAddress;
+    }
+
+    public ArrayList<Mail> getMails() {
+        return mails;
+    }
+
+    private void setMails(ArrayList<Mail> mails) {
+        this.mails = mails;
+    }
+
 
     //*******************COMIENZO PREDICADOS*******************\\
     private Predicate<Mail> send(String propietaryDirection){
@@ -37,7 +62,9 @@ public class Filter {
 
     //*******************COMIENZO MAILS FILTRADOS*******************\\
 
-    public ArrayList<Mail> getFilteredMails_Send(ArrayList<Mail> mails,  String propietaryDirection){
+    public void get_Send(){
+        ArrayList<Mail> mails= getMails();
+        String propietaryDirection= getUserAddress();
         ArrayList<Mail> filteredMails;
 
         
@@ -45,10 +72,10 @@ public class Filter {
         .filter(send(propietaryDirection))
         .collect(Collectors.toCollection(ArrayList::new));
 
-        return filteredMails;
+        setMails(filteredMails);
     }
 
-    public ArrayList<Mail> getFilteredMails_FromUCP(ArrayList<Mail> mails){
+    public void get_FromUCP(ArrayList<Mail> mails){
         ArrayList<Mail> filteredMails;
 
         
@@ -56,27 +83,31 @@ public class Filter {
         .filter(getFromUCPPredicate())
         .collect(Collectors.toCollection(ArrayList::new));
 
-        return filteredMails;
+        setMails(filteredMails);
     }
 
-    public ArrayList<Mail> getFilteredMails_From(ArrayList<Mail> mails, String fromMail){
+    public void get_From(ArrayList<Mail> mails, String fromMail){
         ArrayList<Mail> filteredMails;
 
         filteredMails= mails.stream()
         .filter(getFromPredicate(fromMail))
         .collect(Collectors.toCollection(ArrayList::new));
 
-        return filteredMails;
+        setMails(filteredMails);
     }
 
-    public ArrayList<Mail> getFilteredMails_Date(ArrayList<Mail> mails, String date){
+    public void get_FromDate(ArrayList<Mail> mails, String date){
         ArrayList<Mail> filteredMails;
 
         filteredMails= mails.stream()
         .filter(getFromUCPPredicate(date))
         .collect(Collectors.toCollection(ArrayList::new));
 
-        return filteredMails;
+        setMails(filteredMails);
     }
     //*******************FIN MAILS FILTRADOS*******************\\
+
+    public Arraylist<Mail> toEmailList(){ //TODO
+        return getMails();
+    }
 }

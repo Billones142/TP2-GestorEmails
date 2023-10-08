@@ -4,11 +4,11 @@ public class Contact {
     public Contact(String name, String mail) {
         super();
         setName(name);
-        setMail(mail);
+        setMailAddress(mail);
     }
 
     String name;
-    String mail;
+    String mailAddress;
 
     //           INICIO ENCAPSULACION           //
     public void setName(String name) {
@@ -19,12 +19,12 @@ public class Contact {
         return name;
     }
 
-    public void setMail(String mail) {
-        this.mail = mail;
+    public void setMailAddress(String mail) {
+        this.mailAddress = mail;
     }
 
-    public String getMail() {
-        return mail;
+    public String getMailAddress() {
+        return mailAddress;
     }
     //           FIN ENCAPSULACION           //
 }

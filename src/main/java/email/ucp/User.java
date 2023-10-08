@@ -10,13 +10,13 @@ public class User {
             throw new Exception("Email address invalid");
         }
         setFullName(newFullName);
-        setDirection(address);
+        setEmailAddress(address);
         contacts= new ArrayList<Contact>();
         mails= new ArrayList<Mail>();
     }
 
     private String fullName;
-    private String direction;
+    private String emailAddress;
 
     public ArrayList<Contact> contacts;
     public ArrayList<Mail> mails;
@@ -30,12 +30,12 @@ public class User {
         return fullName;
     }
 
-    public void setDirection(String direction) {
-        this.direction = direction;
+    public void setEmailAddress(String direction) {
+        this.emailAddress = direction;
     }
 
-    public String getDirection() {
-        return direction;
+    public String getEmailAddress() {
+        return emailAddress;
     }
     //           FIN ENCAPSULACION           //
 
@@ -61,7 +61,7 @@ public class User {
     }
 
     public Mail createNewEmail(String subject, String content, String date, ArrayList<String> toEmail) throws Exception{
-        Mail mail = new Mail(getDirection(), date);
+        Mail mail = new Mail(getEmailAddress(), date);
         mail.setTo(toEmail);
         mail.setSubject(subject);
         mail.setContent(content);
@@ -73,7 +73,7 @@ public class User {
 
     public Mail createNewEmail(String subject, String content, String date, Contact contact) throws Exception{
         ArrayList<String> toEmail= new ArrayList<String>();
-        toEmail.add(contact.getMail());
+        toEmail.add(contact.getMailAddress());
 
         return createNewEmail(subject, content, date, toEmail);
     }

@@ -18,7 +18,7 @@ public class UserTest {
         assertNotEquals(null , usuario);
 
         assertEquals("Stefano Merino", usuario.getFullName());
-        assertEquals("stefanomerinoderui@gmail.com" , usuario.getDirection());
+        assertEquals("stefanomerinoderui@gmail.com" , usuario.getEmailAddress());
     }
 
     @Test
@@ -30,7 +30,7 @@ public class UserTest {
 
         Mail mail= usuario.createNewEmail("Test", "Hello World", "10 de agosto", to);
 
-        assertEquals(usuario.getDirection(), mail.getFrom());
+        assertEquals(usuario.getEmailAddress(), mail.getFrom());
         assertEquals("Test", mail.getSubject());
         assertEquals("Hello World", mail.getContent());
         assertEquals(to.get(0), mail.getTo().get(0));
@@ -45,7 +45,7 @@ public class UserTest {
 
         Mail mail= usuario.createNewEmail("Test Mail", "Hello World", "9 de julio", usuario.contacts.get(0));
 
-        assertEquals(usuario.getDirection(), mail.getFrom());
+        assertEquals(usuario.getEmailAddress(), mail.getFrom());
         assertEquals("Test Mail", mail.getSubject());
         assertEquals("Hello World", mail.getContent());
         assertEquals("stiven@gmail.com", mail.getTo().get(0));
@@ -60,7 +60,7 @@ public class UserTest {
 
         Contact contact= user.contacts.get(0);
         assertEquals("juancito", contact.getName());
-        assertEquals("juancapo@hotmail.com", contact.getMail());
+        assertEquals("juancapo@hotmail.com", contact.getMailAddress());
     }
 
     @Test(expected = Exception.class)

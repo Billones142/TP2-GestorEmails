@@ -5,7 +5,6 @@ import java.util.ArrayList;
 import org.junit.Test;
 
 import email.ucp.Mail;
-import email.ucp.User;
 
 
 public class MailTest {
