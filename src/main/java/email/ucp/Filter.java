@@ -12,14 +12,17 @@ public class Filter{
         setUserMails(user.mails);
     }
 
-    private Filter(String filterAddress, ArrayList<Mail> filterMails) { //constructor para las funciones de filter
+    private Filter(String filterAddress, ArrayList<Mail> filterMails, Predicate<Mail> predicateValue) { //constructor para las funciones de filter
         super();
         setUserAddress(filterAddress);
         setUserMails(filterMails);
+        setFilterPredicate(predicateValue);
     }
 
     private ArrayList<Mail> userMails;
     private String userAddress;
+
+    private Predicate<Mail> filterPredicate;
 
     private void setUserAddress(String userAddress) {
         this.userAddress = userAddress;
@@ -35,6 +38,14 @@ public class Filter{
 
     private void setUserMails(ArrayList<Mail> mails) {
         this.userMails = mails;
+    }
+
+    public void setFilterPredicate(Predicate<Mail> predicate) {
+        this.filterPredicate = predicate;
+    }
+
+    public Predicate<Mail> getFilterPredicate() {
+        return filterPredicate;
     }
 
 
@@ -68,57 +79,52 @@ public class Filter{
     //*******************COMIENZO MAILS FILTRADOS*******************\\
 
     public Filter getEmails_Send(){
-        ArrayList<Mail> mails= getUserMails();
         String functionDirection= getUserAddress();
-        ArrayList<Mail> filteredMails;
 
-        
-        filteredMails= mails.stream()
-        .filter(send(functionDirection))
-        .collect(Collectors.toCollection(ArrayList::new));
+        if(getFilterPredicate() == null){
+            setFilterPredicate(send(functionDirection));
+        }else{
+            setFilterPredicate(getFilterPredicate().and(send(functionDirection)));
+        }
 
-        return new Filter(functionDirection, filteredMails);
+        return this;
     }
 
     public Filter getEmails_FromUCP(){
-        ArrayList<Mail> mails= getUserMails();
-        String functionDirection= getUserAddress();
-        ArrayList<Mail> filteredMails;
+        if(getFilterPredicate() == null){
+            setFilterPredicate(getFromUCPPredicate());
+        }else{
+            setFilterPredicate(getFilterPredicate().and(getFromUCPPredicate()));
+        }
 
-        
-        filteredMails= mails.stream()
-        .filter(getFromUCPPredicate())
-        .collect(Collectors.toCollection(ArrayList::new));
-
-        return new Filter(functionDirection, filteredMails);
+        return this;
     }
 
     public Filter getEmails_From(String address){
-        ArrayList<Mail> mails= getUserMails();
-        String functionDirection= getUserAddress();
-        ArrayList<Mail> filteredMails;
+        if(getFilterPredicate() == null){
+            setFilterPredicate(getFromPredicate(address));
+        }else{
+            setFilterPredicate(getFilterPredicate().and(getFromPredicate(address)));
+        }
 
-        filteredMails= mails.stream()
-        .filter(getFromPredicate(address))
-        .collect(Collectors.toCollection(ArrayList::new));
-
-        return new Filter(functionDirection, filteredMails);
+        return this;
     }
 
     public Filter getEmails_FromDate(String date){
-        ArrayList<Mail> mails= getUserMails();
-        String functionDirection= getUserAddress();
-        ArrayList<Mail> filteredMails;
+        if(getFilterPredicate() == null){
+            setFilterPredicate(getFromUCPPredicate(date));
+        }else{
+            setFilterPredicate(getFilterPredicate().and(getFromUCPPredicate(date)));
+        }
 
-        filteredMails= mails.stream()
-        .filter(getFromUCPPredicate(date))
-        .collect(Collectors.toCollection(ArrayList::new));
-
-        return new Filter(functionDirection, filteredMails);
+        return this;
     }
     //*******************FIN MAILS FILTRADOS*******************\\
 
     public ArrayList<Mail> to_EmailList(){
-        return getUserMails();
+        return getUserMails()
+        .stream()
+        .filter(getFilterPredicate())
+        .collect(Collectors.toCollection(ArrayList::new));
     }
 }
