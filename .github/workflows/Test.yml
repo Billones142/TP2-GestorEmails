@@ -74,7 +74,7 @@ jobs:
       - name: Commit and Push Generated Files
         run: |
           git rm .gitignore
-          git reset *
+          git checkout -- *
           
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
