@@ -77,7 +77,7 @@ jobs:
           git config --local user.name "GitHub Action"
 
           rm -f .gitignore
-          git checkout --force
+          git rm --all
 
           git add badge.svg
           
