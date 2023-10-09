@@ -75,7 +75,8 @@ jobs:
         run: |
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
-          
+
+          rm .gitignore
           git checkout --force
 
           git add badge.svg
