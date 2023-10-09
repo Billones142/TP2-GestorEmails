@@ -76,28 +76,7 @@ jobs:
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
           
-          git checkout -- src/
-          rm -rf src
-          git add src/
-
-          git checkout -- .github/
-          rm -rf .github
-          git add .github/
-
-          git checkout -- .gitignore
-          rm .gitignore
-          git add .gitignore
-
-          git checkout -- openTestResults.bat
-          rm openTestResults.bat
-          git add openTestResults.bat
-
-          git checkout -- pom.xml
-          rm pom.xml
-          git add pom.xml
-
-          git checkout -- README.md
-          rm README.md
+          git checkout --force
 
           git add badge.svg
           
