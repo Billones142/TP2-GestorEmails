@@ -81,7 +81,7 @@ public class FilterTest {
     }
     
     @Test
-    public void FiltroComplejoTest() throws Exception{
+    public void FiltroComplejo1_Test() throws Exception{
         User usuario= new User("Stefano Merino", "stefanomerinoderui@gmail.com");
         Filter filtro= new Filter(usuario);
 
@@ -105,5 +105,59 @@ public class FilterTest {
 
         
         assertEquals(12,mailsFiltrados.size());
+    }
+
+    @Test
+    public void FiltroComplejo2_Test() throws Exception{
+        User usuario= new User("Stefano Merino", "stefanomerinoderui@gmail.com");
+        Filter filtro= new Filter(usuario);
+
+        for (int i = 0; i < 13; i++) {
+            usuario.mails.add(i, new Mail("stiven@gmail.com", "8 de septiembre"));
+        }
+        for (int i = 0; i < 12; i++) {
+            usuario.mails.add(i, new Mail("juan@ucp.edu.ar", "20 de diciembre"));
+        }
+        for (int i = 0; i < 8; i++) {
+            usuario.mails.add(i, new Mail("stefanomerinoderui@gmail.com", "24 de enero"));
+        }
+        for (int i = 0; i < 10; i++) {
+            usuario.mails.add(i, new Mail("pedro@ucp.edu.ar", "2 de octubre"));
+        }
+
+        ArrayList<Mail> mailsFiltrados= filtro
+        .getEmails_Send()
+        .getEmails_Send()// se testea que se haga devuelta
+        .getEmails_FromDate("24 de enero").to_EmailList();
+
+        
+        assertEquals(8,mailsFiltrados.size());
+    }
+
+    @Test
+    public void FiltroComplejo3_Test() throws Exception{
+        User usuario= new User("Stefano Merino", "stefanomerinoderui@gmail.com");
+        Filter filtro= new Filter(usuario);
+
+        for (int i = 0; i < 13; i++) {
+            usuario.mails.add(i, new Mail("stiven@gmail.com", "8 de septiembre"));
+        }
+        for (int i = 0; i < 12; i++) {
+            usuario.mails.add(i, new Mail("juan@ucp.edu.ar", "20 de diciembre"));
+        }
+        for (int i = 0; i < 8; i++) {
+            usuario.mails.add(i, new Mail("stefanomerinoderui@gmail.com", "24 de enero"));
+        }
+        for (int i = 0; i < 10; i++) {
+            usuario.mails.add(i, new Mail("pedro@ucp.edu.ar", "2 de octubre"));
+        }
+
+        ArrayList<Mail> mailsFiltrados= filtro
+        .getEmails_FromDate("2 de octubre")
+        .getEmails_From("pedro@ucp.edu.ar")
+        .getEmails_FromUCP().to_EmailList();
+
+
+        assertEquals(10,mailsFiltrados.size());
     }
 }
