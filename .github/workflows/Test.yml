@@ -70,16 +70,7 @@ jobs:
         uses: codecov/codecov-action@v3
         env:
           CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
-
-      - name: Create branch if it doesn't exist
-        uses: actions/github-script@v6
-        with:
-          script: |
-            // Get the branch name.
-            const branchName = '${{ github.ref_name }}';
-
-            // Create the branch if it doesn't exist.
-            github.git.createBranch(reports);
+          
     
       - name: Commit and Push Generated Files
         run: |
