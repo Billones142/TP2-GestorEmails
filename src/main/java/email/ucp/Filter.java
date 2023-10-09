@@ -1,23 +1,25 @@
 package email.ucp;
 
 import java.util.ArrayList;
+import java.util.concurrent.Callable;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
 
 
-public class Filter{
+public class Filter implements Callable<ArrayList<Mail>>{
     public Filter(User user) {
         super();
         setUserAddress(user.getEmailAddress());
         setUserMails(user.mails);
     }
 
-    private Filter(String filterAddress, ArrayList<Mail> filterMails, Predicate<Mail> predicateValue) { //constructor para las funciones de filter
-        super();
-        setUserAddress(filterAddress);
-        setUserMails(filterMails);
-        setFilterPredicate(predicateValue);
-    }
+    @Override
+    public ArrayList<Mail> call() throws Exception {
+        return getUserMails()
+        .stream()
+        .filter(getFilterPredicate())
+        .collect(Collectors.toCollection(ArrayList::new));
+        }
 
     private ArrayList<Mail> userMails;
     private String userAddress;
