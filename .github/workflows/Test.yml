@@ -73,14 +73,13 @@ jobs:
     
       - name: Commit and Push Generated Files
         run: |
-          git rm .gitignore
           git rm --cached -r .
           
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
 
-          git add badge.svg
-          git add target/my-reports/*
+          git add -f badge.svg
+          git add -f target/my-reports/*
           
           git commit -m "Add generated files"
           git push --force origin HEAD:reports
