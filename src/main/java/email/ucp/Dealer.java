@@ -57,7 +57,7 @@ public class Dealer {
         
         //agregar el nuevo mail a todos los destinatarios
         for (String address : to) {
-            getUser(searchUser(address)).mails.add(newMail);;
+            getUser(searchUser(address)).mails.add(newMail);
         }
     }
 
