@@ -14,6 +14,6 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: Billones142/java-jacoco-test@v1.0.0
+      - uses: Billones142/java-jacoco-test@test
         with:
           generate_image: true
