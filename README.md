@@ -8,9 +8,10 @@ Proyecto presentado como Trabajo Práctico 2 en el Ciclo Lectivo 2023 para la ma
 
 ## Test
 [![Tests](https://github.com/Billones142/TP2-GestorEmails/actions/workflows/Test.yml/badge.svg)](https://github.com/Billones142/TP2-GestorEmails/actions/workflows/Test.yml)
-![Badge](https://raw.githubusercontent.com/Billones142/TP2-GestorEmails/reports/badge.svg)
+![Badge](../reports/badge.svg)
 
 **[Resutados de los test](https://billones142.github.io/TP2-GestorEmails/target/my-reports/index.html)**
+
 
 **[Code covered(codecov)](https://app.codecov.io/gh/Billones142/TP2-GestorEmails/tree/main/src%2Fmain%2Fjava%2Femail%2Fucp)**
 
