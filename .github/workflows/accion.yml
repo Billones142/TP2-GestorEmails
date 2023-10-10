@@ -1,0 +1,19 @@
+name: TestsConAccion
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+permissions:
+  write-all
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: Billones142/java-jacoco-test@v1
+        with:
+          generate_image: true
