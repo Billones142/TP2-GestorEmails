@@ -23,8 +23,6 @@ jobs:
           cache: maven
       - name: Test with Maven
         run: mvn clean test
-        env:
-          GH_TOKEN: ${{ secrets.GH_TOKEN }}
 
       - name: JaCoCo Code Coverage Report
         id: jacoco_reporter
@@ -39,16 +37,6 @@ jobs:
           fail_below_threshold: false
           publish_only_summary: false
 
-      # Publish Coverage Job Summary  # Optional
-      - name: Add Coverage Job Summary
-        run: echo "${{ steps.jacoco_reporter.outputs.coverageSummary }}" >> $GITHUB_STEP_SUMMARY
-
-      - name: Generate a coverage value
-        id: coverage
-        # Generates a GitHub Workflow output named `lines`
-        run: |
-          COVERAGE="$GITHUB_STEP_SUMMARY"
-          echo "##[set-output name=lines;]${COVERAGE}%"
       - name: create badge
         uses: emibcn/badge-action@v2.0.2
         with:
