@@ -19,4 +19,4 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
           reports_path: "target/my-reports/*"
           branch_name: "reports"
-          generate_image: true
+          generate_svg: "true"
