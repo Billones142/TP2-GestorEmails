@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Dealer.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">email</a> &gt; <a href="index.source.html" class="el_package">email.ucp</a> &gt; <span class="el_source">Dealer.java</span></div><h1>Dealer.java</h1><pre class="source lang-java linenums">package email.ucp;
+
+import java.util.ArrayList;
+
+public class Dealer {
+    public Dealer() {
+<span class="fc" id="L7">        super();</span>
+<span class="fc" id="L8">        users= new ArrayList&lt;User&gt;();</span>
+<span class="fc" id="L9">    }</span>
+    private ArrayList&lt;User&gt; users;
+
+    //           INICIO ENCAPSULACION           //
+    public ArrayList&lt;User&gt; getUsers() {
+<span class="fc" id="L14">        return users;</span>
+    }
+
+    public User getUser(int index) {
+<span class="fc" id="L18">        return users.get(index);</span>
+    }
+
+    public User getUser(String address) throws Exception{
+<span class="fc" id="L22">        int userIndex= searchUser(address);</span>
+<span class="fc bfc" id="L23" title="All 2 branches covered.">        if(userIndex == -1){</span>
+<span class="fc" id="L24">            throw new Exception(&quot;El usuario no existe&quot;);</span>
+        }
+<span class="fc" id="L26">        return getUser(userIndex);</span>
+    }
+
+    private void setUser(User user) {
+<span class="fc" id="L30">        this.users.add(user);</span>
+<span class="fc" id="L31">    }</span>
+    //           FIN ENCAPSULACION           //
+
+    
+
+    public void setNewUser(String name, String mail) throws Exception{
+<span class="fc" id="L37">        setUser(new User(name, mail));</span>
+<span class="fc" id="L38">    }</span>
+
+    /**
+     * se encarga de buscar el indice del usuario que tenga un mail especifico,
+     * si no lo encuentra devuelve -1
+     * @param address mail del usuario que se está buscando(String)
+     * @return índice del usuario
+     */
+    private int searchUser(String address){
+<span class="fc bfc" id="L47" title="All 2 branches covered.">        for (int i = 0; i &lt; getUsers().size(); i++) {</span>
+<span class="fc bfc" id="L48" title="All 2 branches covered.">            if(getUser(i).getEmailAddress() == address){</span>
+<span class="fc" id="L49">                return i;</span>
+            }
+        }
+<span class="fc" id="L52">        return -1;</span>
+    }
+
+    public void sendMail(User from, ArrayList&lt;String&gt; to, String subject, String content, String date) throws Exception{
+<span class="fc" id="L56">        Mail newMail= from.createNewEmail(subject,content,date,to);</span>
+        
+        //agregar el nuevo mail a todos los destinatarios
+<span class="fc bfc" id="L59" title="All 2 branches covered.">        for (String address : to) {</span>
+<span class="fc" id="L60">            getUser(searchUser(address)).mails.add(newMail);</span>
+<span class="fc" id="L61">        }</span>
+<span class="fc" id="L62">    }</span>
+
+    public Filter filter(User user){
+<span class="fc" id="L65">        return new Filter(user);</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.9.202303310957</span></div></body></html>

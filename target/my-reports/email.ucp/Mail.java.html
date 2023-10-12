@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Mail.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">email</a> &gt; <a href="index.source.html" class="el_package">email.ucp</a> &gt; <span class="el_source">Mail.java</span></div><h1>Mail.java</h1><pre class="source lang-java linenums">package email.ucp;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+
+public class Mail {
+    public Mail(String fromMail, String date) throws Exception{
+<span class="fc" id="L8">        super();</span>
+<span class="fc bfc" id="L9" title="All 2 branches covered.">        if(!emailAddressIsValid(fromMail)){</span>
+<span class="fc" id="L10">            throw new Exception(&quot;Email address invalid&quot;);</span>
+        }
+<span class="fc" id="L12">        setFrom(fromMail);</span>
+<span class="fc" id="L13">        setDate(date);</span>
+<span class="fc" id="L14">    }</span>
+
+    private String from;    
+<span class="fc" id="L17">    private ArrayList&lt;String&gt; toAddresses= new ArrayList&lt;String&gt;();</span>
+    private String subject;
+    private String content;
+    private String date;
+
+
+    //           INICIO ENCAPSULACION           //
+    public String getFrom(){
+<span class="fc" id="L25">        return from;</span>
+    }
+
+    private void setFrom(String direction){
+<span class="fc" id="L29">        from= direction;</span>
+<span class="fc" id="L30">    }</span>
+
+    public void setToAddresses(ArrayList&lt;String&gt; to) {
+<span class="fc" id="L33">        this.toAddresses = to;</span>
+<span class="fc" id="L34">    }</span>
+
+    public ArrayList&lt;String&gt; getToAddresses() {
+<span class="fc" id="L37">        return toAddresses;</span>
+    }
+
+    public void setContent(String content) {
+<span class="fc" id="L41">        this.content = content;</span>
+<span class="fc" id="L42">    }</span>
+
+    public String getContent() {
+<span class="fc" id="L45">        return content;</span>
+    }
+
+    public void setSubject(String subject) {
+<span class="fc" id="L49">        this.subject = subject;</span>
+<span class="fc" id="L50">    }</span>
+
+    public String getSubject() {
+<span class="fc" id="L53">        return subject;</span>
+    }
+
+    public void setDate(String date) {
+<span class="fc" id="L57">        this.date = date;</span>
+<span class="fc" id="L58">    }</span>
+
+    public String getDate() {
+<span class="fc" id="L61">        return date;</span>
+    }
+    //           FIN ENCAPSULACION           //
+
+    public boolean emailAddressIsValid(String address){
+<span class="fc" id="L66">        boolean returnValue= true;</span>
+<span class="fc bfc" id="L67" title="All 2 branches covered.">        if(!address.trim().contains(&quot;@&quot;)){</span>
+<span class="fc" id="L68">            returnValue= false;</span>
+        }
+<span class="fc" id="L70">        ArrayList&lt;String&gt; division= new ArrayList&lt;&gt;(Arrays.asList(address.split(&quot;@&quot;)));</span>
+<span class="fc bfc" id="L71" title="All 2 branches covered.">        if(division.size() != 2){</span>
+<span class="fc" id="L72">            returnValue= false;</span>
+<span class="fc bfc" id="L73" title="All 2 branches covered.">        }else for (String string : division) {</span>
+<span class="fc bfc" id="L74" title="All 2 branches covered.">            if(string.length() &lt;= 0){</span>
+<span class="fc" id="L75">                returnValue= false;</span>
+            }
+<span class="fc" id="L77">        }</span>
+        
+<span class="fc" id="L79">        return returnValue;</span>
+    }
+
+    public void addNewToAddress(String email){  
+<span class="fc" id="L83">        getToAddresses().add(email);</span>
+<span class="fc" id="L84">    }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.9.202303310957</span></div></body></html>

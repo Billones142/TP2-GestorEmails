@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Filter.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">email</a> &gt; <a href="index.source.html" class="el_package">email.ucp</a> &gt; <span class="el_source">Filter.java</span></div><h1>Filter.java</h1><pre class="source lang-java linenums">package email.ucp;
+
+import java.util.ArrayList;
+import java.util.function.Predicate;
+import java.util.stream.Collectors;
+
+
+public class Filter{
+    public Filter(User user) {
+<span class="fc" id="L10">        super();</span>
+<span class="fc" id="L11">        setUserAddress(user.getEmailAddress());</span>
+<span class="fc" id="L12">        setUserMails(user.mails);</span>
+<span class="fc" id="L13">    }</span>
+
+    private ArrayList&lt;Mail&gt; userMails;
+    private String userAddress;
+
+    private Predicate&lt;Mail&gt; filterPredicate;
+
+    private void setUserAddress(String userAddress) {
+<span class="fc" id="L21">        this.userAddress = userAddress;</span>
+<span class="fc" id="L22">    }</span>
+
+    public String getUserAddress() {
+<span class="fc" id="L25">        return userAddress;</span>
+    }
+
+    public ArrayList&lt;Mail&gt; getUserMails() {
+<span class="fc" id="L29">        return userMails;</span>
+    }
+
+    private void setUserMails(ArrayList&lt;Mail&gt; mails) {
+<span class="fc" id="L33">        this.userMails = mails;</span>
+<span class="fc" id="L34">    }</span>
+
+    public void setFilterPredicate(Predicate&lt;Mail&gt; predicate) {
+<span class="fc" id="L37">        this.filterPredicate = predicate;</span>
+<span class="fc" id="L38">    }</span>
+
+    public Predicate&lt;Mail&gt; getFilterPredicate() {
+<span class="fc" id="L41">        return filterPredicate;</span>
+    }
+
+
+    //*******************COMIENZO PREDICADOS*******************\\
+    private Predicate&lt;Mail&gt; send(String propietaryDirection){
+<span class="fc bfc" id="L47" title="All 2 branches covered.">        return mail -&gt; mail.getFrom() == propietaryDirection;</span>
+    }
+
+    private Predicate&lt;Mail&gt; getFromPredicate(String fromMail){
+<span class="fc bfc" id="L51" title="All 2 branches covered.">        return mail -&gt; mail.getFrom() == fromMail;</span>
+    }
+
+    private Predicate&lt;Mail&gt; getFromUCPPredicate(){
+<span class="fc" id="L55">        return mail -&gt; isFromUCP(mail);</span>
+    }
+
+    private Predicate&lt;Mail&gt; getFromUCPPredicate(String date){
+<span class="fc bfc" id="L59" title="All 2 branches covered.">        return mail -&gt; mail.getDate() == date;</span>
+    }
+    //*******************FIN PREDICADOS*******************\\
+
+    private boolean isFromUCP(Mail mail){
+<span class="fc" id="L64">        boolean isFromUCP= false;</span>
+<span class="fc" id="L65">        String addressProvider= mail.getFrom().split(&quot;@&quot;)[1];</span>
+<span class="fc bfc" id="L66" title="All 2 branches covered.">        if(addressProvider.contains(&quot;ucp.edu.ar&quot;)){</span>
+<span class="fc" id="L67">            isFromUCP= true;</span>
+        }
+<span class="fc" id="L69">        return isFromUCP;</span>
+    }
+
+    //*******************COMIENZO MAILS FILTRADOS*******************\\
+
+    public Filter getEmails_Send() throws Exception{
+<span class="fc" id="L75">        String functionDirection= getUserAddress();</span>
+
+<span class="fc bfc" id="L77" title="All 2 branches covered.">        if(getFilterPredicate() == null){</span>
+<span class="fc" id="L78">            setFilterPredicate(send(functionDirection));</span>
+        }else{
+<span class="fc" id="L80">            setFilterPredicate(getFilterPredicate().and(send(functionDirection)));</span>
+        }
+        
+<span class="fc" id="L83">        return this;</span>
+    }
+
+    public Filter getEmails_FromUCP(){
+<span class="fc bfc" id="L87" title="All 2 branches covered.">        if(getFilterPredicate() == null){</span>
+<span class="fc" id="L88">            setFilterPredicate(getFromUCPPredicate());</span>
+        }else{
+<span class="fc" id="L90">            setFilterPredicate(getFilterPredicate().and(getFromUCPPredicate()));</span>
+        }
+
+<span class="fc" id="L93">        return this;</span>
+    }
+
+    public Filter getEmails_From(String address){
+<span class="fc bfc" id="L97" title="All 2 branches covered.">        if(getFilterPredicate() == null){</span>
+<span class="fc" id="L98">            setFilterPredicate(getFromPredicate(address));</span>
+        }else{
+<span class="fc" id="L100">            setFilterPredicate(getFilterPredicate().and(getFromPredicate(address)));</span>
+        }
+
+<span class="fc" id="L103">        return this;</span>
+    }
+
+    public Filter getEmails_FromDate(String date){
+<span class="fc bfc" id="L107" title="All 2 branches covered.">        if(getFilterPredicate() == null){</span>
+<span class="fc" id="L108">            setFilterPredicate(getFromUCPPredicate(date));</span>
+        }else{
+<span class="fc" id="L110">            setFilterPredicate(getFilterPredicate().and(getFromUCPPredicate(date)));</span>
+        }
+
+<span class="fc" id="L113">        return this;</span>
+    }
+    //*******************FIN MAILS FILTRADOS*******************\\
+
+    public ArrayList&lt;Mail&gt; to_EmailList(){
+<span class="fc" id="L118">        return getUserMails()</span>
+<span class="fc" id="L119">        .stream()</span>
+<span class="fc" id="L120">        .filter(getFilterPredicate())</span>
+<span class="fc" id="L121">        .collect(Collectors.toCollection(ArrayList::new));</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.9.202303310957</span></div></body></html>

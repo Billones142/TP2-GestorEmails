@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>User.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">email</a> &gt; <a href="index.source.html" class="el_package">email.ucp</a> &gt; <span class="el_source">User.java</span></div><h1>User.java</h1><pre class="source lang-java linenums">package email.ucp;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+
+import email.ucp.interfaces.IgetDetails;
+
+public class User implements IgetDetails{
+    public User(String newFullName, String address) throws Exception{
+<span class="fc" id="L10">        super();</span>
+<span class="fc bfc" id="L11" title="All 2 branches covered.">        if(!emailAddressIsValid(address)){</span>
+<span class="fc" id="L12">            throw new Exception(&quot;Email address invalid&quot;);</span>
+        }
+<span class="fc" id="L14">        setFullName(newFullName);</span>
+<span class="fc" id="L15">        setEmailAddress(address);</span>
+<span class="fc" id="L16">        contacts= new ArrayList&lt;Contact&gt;();</span>
+<span class="fc" id="L17">        mails= new ArrayList&lt;Mail&gt;();</span>
+<span class="fc" id="L18">    }</span>
+
+    private String fullName;
+    private String emailAddress;
+
+    public ArrayList&lt;Contact&gt; contacts;
+    public ArrayList&lt;Mail&gt; mails;
+
+    //           INICIO ENCAPSULACION           //
+    public void setFullName(String fullName) {
+<span class="fc" id="L28">        this.fullName = fullName;</span>
+<span class="fc" id="L29">    }</span>
+
+    public String getFullName() {
+<span class="fc" id="L32">        return fullName;</span>
+    }
+
+    public void setEmailAddress(String direction) {
+<span class="fc" id="L36">        this.emailAddress = direction;</span>
+<span class="fc" id="L37">    }</span>
+
+    public String getEmailAddress() {
+<span class="fc" id="L40">        return emailAddress;</span>
+    }
+    //           FIN ENCAPSULACION           //
+
+    public boolean emailAddressIsValid(String address){
+<span class="fc" id="L45">        boolean returnValue= true;</span>
+<span class="fc bfc" id="L46" title="All 2 branches covered.">        if(!address.trim().contains(&quot;@&quot;)){</span>
+<span class="fc" id="L47">            returnValue= false;</span>
+        }
+<span class="fc" id="L49">        ArrayList&lt;String&gt; division= new ArrayList&lt;&gt;(Arrays.asList(address.split(&quot;@&quot;)));</span>
+<span class="fc bfc" id="L50" title="All 2 branches covered.">        if(division.size() != 2){</span>
+<span class="fc" id="L51">            returnValue= false;</span>
+<span class="fc bfc" id="L52" title="All 2 branches covered.">        }else for (String string : division) {</span>
+<span class="fc bfc" id="L53" title="All 2 branches covered.">            if(string.length() &lt;= 0){</span>
+<span class="fc" id="L54">                returnValue= false;</span>
+            }
+<span class="fc" id="L56">        }</span>
+        
+<span class="fc" id="L58">        return returnValue;</span>
+    }
+
+    public void addNewContact(String name,String direction){
+<span class="fc" id="L62">        contacts.add(new Contact(name, direction));</span>
+<span class="fc" id="L63">    }</span>
+
+    public Mail createNewEmail(String subject, String content, String date, ArrayList&lt;String&gt; toEmail) throws Exception{
+<span class="fc" id="L66">        Mail mail = new Mail(getEmailAddress(), date);</span>
+<span class="fc" id="L67">        mail.setToAddresses(toEmail);</span>
+<span class="fc" id="L68">        mail.setSubject(subject);</span>
+<span class="fc" id="L69">        mail.setContent(content);</span>
+
+<span class="fc" id="L71">        mails.add(mail);</span>
+
+<span class="fc" id="L73">        return mail;</span>
+    }
+
+    public Mail createNewEmail(String subject, String content, String date, Contact contact) throws Exception{
+<span class="fc" id="L77">        ArrayList&lt;String&gt; toEmail= new ArrayList&lt;String&gt;();</span>
+<span class="fc" id="L78">        toEmail.add(contact.getEmailAddress());</span>
+
+<span class="fc" id="L80">        return createNewEmail(subject, content, date, toEmail);</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.9.202303310957</span></div></body></html>
